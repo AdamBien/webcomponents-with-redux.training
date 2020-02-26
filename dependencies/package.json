@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lit-html": "^1.1.2",
     "redux": "^4.0.5"
   },
   "devDependencies": {
