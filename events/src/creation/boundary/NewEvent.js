@@ -9,6 +9,7 @@ class NewEvent extends AirElement{
         this.event = {};
     }
     view() { 
+        console.log('UPDATED');
         return html`
             <input name="eventname" @change=${e=>this.onUserInput(e)} placeholder="eventname">
             <input name="description" @change=${e=>this.onUserInput(e)} placeholder="description">
