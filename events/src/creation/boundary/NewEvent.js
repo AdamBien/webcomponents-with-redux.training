@@ -1,4 +1,5 @@
-import { render,html } from "../../lib/lit-html.js";
+import { render, html } from "../../lib/lit-html.js";
+import { createEvent } from "../control/EventsControl.js";
 class NewEvent extends HTMLElement{ 
 
     constructor() { 
@@ -13,13 +14,14 @@ class NewEvent extends HTMLElement{
         `;
         render(template,this);
     }
-    newEvent() { 
-        console.log('------ saving',this.event);
-    }
     onUserInput({ target: { name,value } }) { 
         console.log(name, value);
         this.event[name] = value;
     }
+    newEvent() { 
+        createEvent(this.event);
+    }
+
 }
 
 customElements.define('a-newevent',NewEvent);
