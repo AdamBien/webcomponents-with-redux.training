@@ -1,9 +1,11 @@
-class EventsOverview extends HTMLElement { 
+import { html,render } from "../../lib/lit-html.js";
+import AirElement from "../../AirElement.js";
+class EventsOverview extends AirElement { 
 
-    connectedCallback() { 
-        this.innerHTML = `
+    view() { 
+        return html`
         <h2>hello,overview</h2>
-        `
+        `;
     }
 
 }

@@ -1,18 +1,19 @@
-import { render, html } from "../../lib/lit-html.js";
+import {  html } from "../../lib/lit-html.js";
 import { createEvent } from "../control/EventsControl.js";
-class NewEvent extends HTMLElement{ 
+import AirElement from "../../AirElement.js";
+
+class NewEvent extends AirElement{ 
 
     constructor() { 
         super();
         this.event = {};
     }
-    connectedCallback() { 
-        const template = html`
+    view() { 
+        return html`
             <input name="eventname" @change=${e=>this.onUserInput(e)} placeholder="eventname">
             <input name="description" @change=${e=>this.onUserInput(e)} placeholder="description">
             <button @click=${_ => this.newEvent()}>create</button>
         `;
-        render(template,this);
     }
     onUserInput({ target: { name,value } }) { 
         console.log(name, value);
