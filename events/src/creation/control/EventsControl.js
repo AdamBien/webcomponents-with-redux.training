@@ -1,4 +1,4 @@
-import { store } from "../../AirElement.js";
+import store from "../../store.js";
 
 const createEvent = payload => { 
     store.dispatch({

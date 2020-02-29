@@ -7,8 +7,8 @@ class EventsOverview extends AirElement {
         console.log('UPDATING +1',this.state);
         return html`
         <ol>
-         ${eventList.map(({ name, description }) => html`
-            <li>${name} => ${description}</li>
+         ${eventList.map(({ eventname, description }) => html`
+            <li>${eventname} => ${description}</li>
          `)}
         </ol>
         `;
