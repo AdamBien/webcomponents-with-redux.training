@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bulma": "^0.8.0",
     "lit-html": "^1.1.2",
     "redux": "^4.0.5"
   },
