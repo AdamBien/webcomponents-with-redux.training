@@ -6,7 +6,6 @@ class EventsOverview extends AirElement {
 
     view() { 
         const eventList = this.state.events;
-        console.log('UPDATING +1',this.state);
         return html`
         <a-events-filter></a-events-filter>
         <ol>
