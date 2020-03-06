@@ -14,9 +14,13 @@ export default class AirElement extends HTMLElement {
     }
 
     triggerViewUpdate() { 
-        this.state = store.getState();
+        this.state = this.extractState(store.getState());
         const template = this.view();
         render(template,this);
+    }
+
+    extractState(reduxState) { 
+        return reduxState;
     }
 
     view() { }

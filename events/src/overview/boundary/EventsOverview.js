@@ -6,6 +6,7 @@ class EventsOverview extends AirElement {
 
     view() { 
         const eventList = this.state.events;
+        console.log('...',eventList);
         return html`
         <a-events-filter></a-events-filter>
         <ol>
@@ -14,6 +15,10 @@ class EventsOverview extends AirElement {
          `)}
         </ol>
         `;
+    }
+
+    extractState(redux) { 
+        return redux.events;
     }
 
 }
