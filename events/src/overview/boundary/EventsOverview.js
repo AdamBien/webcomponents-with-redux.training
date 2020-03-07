@@ -10,7 +10,7 @@ class EventsOverview extends AirElement {
         console.log('..EO.',filter);
         return html`
         <a-events-filter></a-events-filter>
-        <table>
+        <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
                 <th>event name</th>
                 <th>description</th>
