@@ -9,3 +9,8 @@ a-newevent form{
     flex-direction: column;
     align-items: flex-start;
 }
+
+a-events-overview{
+    width: 80%;
+    padding-top: 10%;
+}

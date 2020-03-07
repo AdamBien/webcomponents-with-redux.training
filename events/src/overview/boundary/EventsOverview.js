@@ -10,14 +10,25 @@ class EventsOverview extends AirElement {
         console.log('..EO.',filter);
         return html`
         <a-events-filter></a-events-filter>
-        <ol>
-         ${eventList.filter(e => matchesCriteria(e,filter)).map(({ eventname, description }) => html`
-            <li>${eventname} => ${description}</li>
-         `)}
-        </ol>
+        <table>
+            <thead>
+                <th>event name</th>
+                <th>description</th>
+                <th>link</th>
+            </thead>
+            <tbody>
+            ${eventList.filter(e => matchesCriteria(e, filter)).
+                map(({ eventname, description,link }) => html`
+            <tr>
+                <td>${eventname}</td>
+                <td>${description}</td>
+                <td>${link}</td>
+            </tr>
+             `)}
+
+            </tbody>
+        </table>
         `;
     }
-
-
 }
 customElements.define('a-events-overview',EventsOverview);
