@@ -4,4 +4,9 @@ const save = (object) => {
     localStorage.setItem(KEY,serialized);
 }
 
-export { save };
+const load = _ => { 
+    const serialized = localStorage.getItem(KEY);
+    return JSON.parse(serialized);
+}
+
+export { load,save };

@@ -7,7 +7,7 @@ const createEvent = payload => {
         payload
     });
     const state = store.getState();
-    //save
+    //save 
     save(state);
 }
 
