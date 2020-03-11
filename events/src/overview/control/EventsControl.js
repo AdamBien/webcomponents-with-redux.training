@@ -1,7 +1,8 @@
+import { EVENT_SELECTED } from "../../creation/entity/EventsReducer.js";
 import store from "../../store.js";
 const eventSelected = (name, checked) => { 
     store.dispatch({
-        type: 'PLACEHOLDER',
+        type: EVENT_SELECTED,
         payload: {
             name,
             checked
