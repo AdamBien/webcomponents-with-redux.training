@@ -6,7 +6,7 @@ import { load } from "./localstorage/control/StorageControl.js";
 const deepCopy = input => JSON.parse(JSON.stringify(input));
 
 const chainedEventsReducer = (state, action) => { 
-    const eventsResult = events(state, action);
+    const eventsResult = deepCopy(events(state, action));
     return overview(eventsResult,action);
 }
 
@@ -15,7 +15,7 @@ const combinedReducer = combineReducers({
     filter
 });
 
-const copyingEvent = (state, action) => { 
+const copyingReducer = (state, action) => { 
     return deepCopy(combinedReducer(state,action));
 }
 
@@ -30,5 +30,5 @@ if (!initialState) {
 }
 
 
-const store = createStore(copyingEvent,initialState,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(copyingReducer,initialState,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
