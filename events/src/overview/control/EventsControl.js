@@ -1,6 +1,6 @@
-import { EVENT_SELECTED } from "../entity/OverviewReducer.js";
+import { EVENT_SELECTED,DELETE_SELECTED_EVENTS } from "../entity/OverviewReducer.js";
 import store from "../../store.js";
-const eventSelected = (name, checked) => { 
+export const eventSelected = (name, checked) => { 
     store.dispatch({
         type: EVENT_SELECTED,
         payload: {
@@ -10,4 +10,9 @@ const eventSelected = (name, checked) => {
     });
 
 }
-export { eventSelected };
+
+export const deleteSelected = () => { 
+    store.dispatch({
+        type: DELETE_SELECTED_EVENTS
+    });    
+}
