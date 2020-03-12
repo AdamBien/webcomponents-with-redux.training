@@ -8,5 +8,5 @@ export const updateSelection = (list, eventname, checked) => {
 }
 
 export const deleteSelected = (list) => { 
-    return list;
+    return list.filter(event => !event.checked);
 }

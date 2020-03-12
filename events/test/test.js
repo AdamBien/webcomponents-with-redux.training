@@ -48,9 +48,9 @@ describe('#overview.entity.EventOperations', function () {
     ];
 
     it('deleteSelected_checkedEventsAreNotReturned', function () { 
-            
         const result = deleteSelected(input);
-        assert.isTrue(result.length === 1);
+        assert.lengthOf(result, 1);
+        assert.include(result,input[0]);
     })
 })
 
