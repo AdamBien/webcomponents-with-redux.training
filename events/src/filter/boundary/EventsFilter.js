@@ -4,9 +4,14 @@ import { onFilterChanged } from "../control/FilterControl.js";
 
 class EventsFilter extends AirElement { 
 
+    extractState(redux) { 
+        return redux.filter;
+    }
+
     view() { 
+        const { filter } = this.state;
         return html`
-            <input class="input" placeholder="keyword" @keyup=${e => this.onFilter(e)}>
+            <input class="input" .value=${filter} placeholder="keyword" @keyup=${e => this.onFilter(e)}>
         `
     }
 
