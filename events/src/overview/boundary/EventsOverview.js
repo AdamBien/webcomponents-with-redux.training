@@ -3,6 +3,7 @@ import AirElement from "../../AirElement.js";
 import '../../filter/boundary/EventsFilter.js'
 import matchesCriteria from '../entity/Filter.js';
 import { eventSelected } from "../control/EventsControl.js";
+import './EventActions.js';
 
 class EventsOverview extends AirElement { 
 
@@ -11,6 +12,7 @@ class EventsOverview extends AirElement {
         console.log('..EO.',filter);
         return html`
         <a-events-filter></a-events-filter>
+        <a-event-actions></a-event-actions>
         <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
                 <th>event name</th>
