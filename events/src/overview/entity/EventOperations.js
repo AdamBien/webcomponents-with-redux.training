@@ -6,3 +6,7 @@ export const updateSelection = (list, eventname, checked) => {
     const event = findEvent(list,eventname);    
     event['checked'] = checked;
 }
+
+export const deleteSelected = (list) => { 
+    return list;
+}

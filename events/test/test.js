@@ -1,4 +1,5 @@
 import matchesCriteria from "./overview/entity/Filter.js";
+import { deleteSelected } from "./overview/entity/EventOperations.js";
 mocha.setup('bdd');
 const assert = chai.assert;
 
@@ -28,6 +29,29 @@ describe('#overview.entity.Filter', function () {
         assert.isTrue(matchesCriteria(webEvent,'web'));
     })
 
+})
+
+describe('#overview.entity.EventOperations', function () {
+    const input = [
+        {
+            link: 'http://adambien.blog',
+            eventname: 'test',
+            description: 'next',
+            checked: false
+        },
+        {
+            link: 'http://airhacks.com',
+            eventname: 'airhacks',
+            description: 'at airport',
+            checked: true
+        }
+    ];
+
+    it('deleteSelected_checkedEventsAreNotReturned', function () { 
+            
+        const result = deleteSelected(input);
+        assert.isTrue(result.length === 1);
+    })
 })
 
 mocha.run();
