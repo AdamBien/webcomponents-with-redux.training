@@ -7,6 +7,7 @@ class EventActions extends AirElement {
     view() { 
         return html`
         <button @click=${_ => deleteSelected()}>delete</button>
+        <button @click=${_ => deleteSelected()}>edit</button>
         `;
     }
 }
