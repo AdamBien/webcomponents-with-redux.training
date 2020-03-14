@@ -18,7 +18,6 @@ class NewEvent extends AirElement{
         const { editMode = false } = this.state;
         if (editMode)
             this.event = findSelected(this.state.events);
-        debugger
         return html`
         <form>
             ${this.input({name: 'link' })}

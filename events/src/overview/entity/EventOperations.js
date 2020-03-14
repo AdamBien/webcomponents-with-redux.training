@@ -1,4 +1,4 @@
-const findEvent = (list, eventname) => { 
+export const findEvent = (list, eventname) => { 
     return list.find(e => e.eventname === eventname);
 }
 
