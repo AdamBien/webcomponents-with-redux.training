@@ -10,3 +10,7 @@ export const updateSelection = (list, eventname, checked) => {
 export const deleteSelected = (list) => { 
     return list.filter(event => !event.checked);
 }
+
+export const findSelected = (list) => { 
+    return list.find(event => event.checked);
+}

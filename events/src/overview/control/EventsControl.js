@@ -10,13 +10,11 @@ export const eventSelected = (name, checked) => {
     });
 
 }
-
 export const editSelected = () => {
     store.dispatch({
         type: EDIT_SELECTED
     });
 }
-
 export const deleteSelected = () => { 
     store.dispatch({
         type: DELETE_SELECTED_EVENTS

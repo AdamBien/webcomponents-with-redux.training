@@ -16,8 +16,10 @@ const overview = (state = { events: [] }, action) => {
                 events: deleteSelected(state.events)
             };
         case EDIT_SELECTED:
-            debugger
-            return state;
+            return {
+                ...state,
+                editMode: true
+            };
     }
     console.log(state,action);
     return state;

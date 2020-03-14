@@ -1,6 +1,7 @@
 import {  html } from "../../lib/lit-html.js";
 import { createEvent } from "../control/EventsControl.js";
 import AirElement from "../../AirElement.js";
+import { findSelected } from "../../overview/entity/EventOperations.js";
 
 class NewEvent extends AirElement{ 
 
@@ -8,8 +9,17 @@ class NewEvent extends AirElement{
         super();
         this.event = {};
     }
+
+    extractState(redux) { 
+        return redux.events;
+    }
+    
     view() { 
-        console.log('UPDATED');
+        const { editMode = false } = this.state;
+        let selectedEvent;
+        if (editMode)
+            selectedEvent = findSelected(this.state.events);
+        debugger
         return html`
         <form>
             ${this.input({name: 'link' })}
