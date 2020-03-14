@@ -16,9 +16,8 @@ class NewEvent extends AirElement{
     
     view() { 
         const { editMode = false } = this.state;
-        let selectedEvent;
         if (editMode)
-            selectedEvent = findSelected(this.state.events);
+            this.event = findSelected(this.state.events);
         debugger
         return html`
         <form>
@@ -33,7 +32,7 @@ class NewEvent extends AirElement{
     input({name,placeholder=name }) { 
         return html`
            <label class="label">${placeholder}
-              <input class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
+              <input .value=${this.event[name]||null} class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
            </label>
         `;        
     }
