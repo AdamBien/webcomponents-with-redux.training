@@ -1,4 +1,4 @@
-import { EVENT_SELECTED,DELETE_SELECTED_EVENTS } from "../entity/OverviewReducer.js";
+import { EVENT_SELECTED,EDIT_SELECTED,DELETE_SELECTED_EVENTS } from "../entity/OverviewReducer.js";
 import store from "../../store.js";
 export const eventSelected = (name, checked) => { 
     store.dispatch({
@@ -9,6 +9,12 @@ export const eventSelected = (name, checked) => {
         }
     });
 
+}
+
+export const editSelected = () => {
+    store.dispatch({
+        type: EDIT_SELECTED
+    });
 }
 
 export const deleteSelected = () => { 

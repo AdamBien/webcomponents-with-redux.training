@@ -1,5 +1,7 @@
 export const EVENT_SELECTED = 'EVENT_SELECTED';
 export const DELETE_SELECTED_EVENTS = 'DELETE_SELECTED_EVENTS';
+export const EDIT_SELECTED = 'EDIT_SELECTED';
+
 import { updateSelection,deleteSelected } from "../entity/EventOperations.js";
 
 const overview = (state = { events: [] }, action) => { 
@@ -13,6 +15,9 @@ const overview = (state = { events: [] }, action) => {
             return {
                 events: deleteSelected(state.events)
             };
+        case EDIT_SELECTED:
+            debugger
+            return state;
     }
     console.log(state,action);
     return state;
