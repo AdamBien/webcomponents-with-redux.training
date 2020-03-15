@@ -15,6 +15,7 @@ class NewEvent extends AirElement{
     }
     
     view() { 
+        this.event = {};
         const { editMode = false } = this.state;
         if (editMode)
             this.event = findSelected(this.state.events);

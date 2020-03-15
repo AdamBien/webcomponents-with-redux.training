@@ -7,6 +7,7 @@ const events = (state = { events: [] }, action) => {
         case NEW_EVENT_CREATED:
             return {
                 ...state,
+                editMode: false,
                 events: addOrReplace(state.events,payload)
             };
     }
