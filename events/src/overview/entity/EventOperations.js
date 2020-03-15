@@ -12,5 +12,6 @@ export const deleteSelected = (list) => {
 }
 
 export const findSelected = (list) => { 
-    return list.find(event => event.checked);
+    const found = list.find(event => event.checked);
+    return Object.assign({},found);
 }

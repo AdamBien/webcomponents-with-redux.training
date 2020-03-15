@@ -20,10 +20,10 @@ class NewEvent extends AirElement{
             this.event = findSelected(this.state.events);
         return html`
         <form>
-            ${this.input({name: 'link' })}
             ${this.input({name:'eventname'})}
+            ${this.input({ name: 'link' })}
             ${this.input({name:'description'})}
-            <button class="button is-primary" @click=${e=> this.newEvent(e)}>create</button>
+            <button class="button is-primary" @click=${e=> this.newEvent(e)}>save</button>
         </form>
         `;
     }
