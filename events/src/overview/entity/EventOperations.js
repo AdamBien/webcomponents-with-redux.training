@@ -15,3 +15,7 @@ export const findSelected = (list) => {
     const found = list.find(event => event.checked);
     return Object.assign({},found);
 }
+
+export const areSomeSelected = (list) => { 
+    return list.some(event => event.checked);
+}
