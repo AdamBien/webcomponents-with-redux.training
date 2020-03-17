@@ -3,6 +3,7 @@ export const validate = async (url) => {
         method: 'POST',
         body: url
     });
-    const validationResut = response.json();
-    console.log("URL is validated ",validationResut);
+    const result = await response.json();
+    const { ok, status } = result;
+    console.log(`URL is valid? ${ok} with status ${status} `);
 }
