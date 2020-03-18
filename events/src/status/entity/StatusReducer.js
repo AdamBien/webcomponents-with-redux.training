@@ -1,0 +1,2 @@
+export const ERROR_HAPPENED = 'ERROR_HAPPENED';
+

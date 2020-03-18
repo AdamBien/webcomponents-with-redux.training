@@ -1,3 +1,4 @@
+import { errorHappened } from "../../status/control/StatusControl.js";
 export const validate = async (url) => { 
     let response, result;
     try {
@@ -7,7 +8,7 @@ export const validate = async (url) => {
         });
         result = await response.json();
     } catch (error) { 
-        console.log('server not available', error);
+        errorHappened(error, 'Validation server not available');
         return;
     }
     const { ok, status } = result;
