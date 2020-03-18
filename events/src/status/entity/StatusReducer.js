@@ -1,4 +1,5 @@
 export const ERROR_HAPPENED = 'ERROR_HAPPENED';
+export const MESSAGE_CLEARED = 'MESSAGE_CLEARED';
 
 const status = (state = {}, action) => {
     const { type, payload } = action;
@@ -8,6 +9,11 @@ const status = (state = {}, action) => {
             return {
                 error,
                 message
+            }
+        case MESSAGE_CLEARED:
+            return {
+                message: null,
+                error: {}
             }
             
     }
