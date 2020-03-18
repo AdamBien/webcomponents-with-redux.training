@@ -1,6 +1,7 @@
 import { addOrReplace } from "./EditOperations.js";
 export const NEW_EVENT_CREATED = 'NEW_EVENT_CREATED';
 export const LINK_VALIDATED = 'LINK_VALIDATED';
+export const INPUT_CHANGED = 'INPUT_CHANGED';
 
 const events = (state = { events: [] }, action) => { 
     const { type, payload } = action;
@@ -18,6 +19,11 @@ const events = (state = { events: [] }, action) => {
                 validations: {
                     ok,status
                 }
+            }
+        case INPUT_CHANGED:
+            debugger
+            return {
+                ...state
             }
     }
     console.log(state,action);

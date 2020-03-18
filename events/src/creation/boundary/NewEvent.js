@@ -1,5 +1,5 @@
 import {  html } from "../../lib/lit-html.js";
-import { createEvent } from "../control/EventsControl.js";
+import { createEvent,inputChanged } from "../control/EventsControl.js";
 import AirElement from "../../AirElement.js";
 import { findSelected } from "../../overview/entity/EventOperations.js";
 import { validate } from "../control/LinkValidatorControl.js";
@@ -39,11 +39,12 @@ class NewEvent extends AirElement{
     }
 
     onUserInput({ target: { name,value } }) { 
-        console.log(name, value);
         if (name === 'link') { 
             validate(value);
         }
         this.event[name] = value;
+        inputChanged(name,value);
+
     }
     newEvent(e) { 
         const { target: { form,form: { elements } } } = e;
