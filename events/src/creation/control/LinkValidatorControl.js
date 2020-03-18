@@ -8,7 +8,7 @@ export const validate = async (url) => {
         });
         result = await response.json();
     } catch (error) { 
-        errorHappened(error, 'Validation server not available');
+        errorHappened(error, 'Validation server is not available');
         return;
     }
     const { ok, status } = result;
