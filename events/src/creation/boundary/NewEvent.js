@@ -8,7 +8,6 @@ class NewEvent extends AirElement{
 
     constructor() { 
         super();
-        this.event = {};
     }
 
     extractState(redux) { 
@@ -16,7 +15,6 @@ class NewEvent extends AirElement{
     }
     
     view() { 
-        this.event = {};
         const { editMode = false } = this.state;
         if (editMode)
             this.event = findSelected(this.state.events);
@@ -30,10 +28,11 @@ class NewEvent extends AirElement{
         `;
     }
 
-    input({name,placeholder=name }) { 
+    input({ name, placeholder = name }) { 
+        const { form } = this.state
         return html`
            <label class="label">${placeholder}
-              <input .value=${this.event[name]||null} class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
+              <input .value=${form[name]||null} class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
            </label>
         `;        
     }
@@ -42,7 +41,6 @@ class NewEvent extends AirElement{
         if (name === 'link') { 
             validate(value);
         }
-        this.event[name] = value;
         inputChanged(name,value);
 
     }
@@ -58,7 +56,7 @@ class NewEvent extends AirElement{
         }
         form.reportValidity();
         if(form.checkValidity())
-            createEvent(this.event);
+            createEvent();
     }
 
 }

@@ -1,9 +1,8 @@
 import store from "../../store.js";
 import { NEW_EVENT_CREATED,INPUT_CHANGED } from "../entity/EventsReducer.js";
-const createEvent = payload => { 
+const createEvent = _ => { 
     store.dispatch({
-        type: NEW_EVENT_CREATED,
-        payload
+        type: NEW_EVENT_CREATED
     });
 }
 

@@ -10,7 +10,7 @@ const events = (state = { events: [], form: {} }, action) => {
             return {
                 ...state,
                 editMode: false,
-                events: addOrReplace(state.events,payload)
+                events: addOrReplace(state.events,state.form)
             };
         case LINK_VALIDATED:
             const { ok,status } = payload;
