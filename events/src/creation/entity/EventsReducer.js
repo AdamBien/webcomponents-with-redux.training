@@ -1,9 +1,9 @@
-import { addOrReplace } from "./EditOperations.js";
+import { addOrReplace,addInput } from "./EditOperations.js";
 export const NEW_EVENT_CREATED = 'NEW_EVENT_CREATED';
 export const LINK_VALIDATED = 'LINK_VALIDATED';
 export const INPUT_CHANGED = 'INPUT_CHANGED';
 
-const events = (state = { events: [] }, action) => { 
+const events = (state = { events: [], form: {} }, action) => { 
     const { type, payload } = action;
     switch (type) { 
         case NEW_EVENT_CREATED:
@@ -21,9 +21,9 @@ const events = (state = { events: [] }, action) => {
                 }
             }
         case INPUT_CHANGED:
-            debugger
             return {
-                ...state
+                ...state,
+                form: addInput(state.form,payload)
             }
     }
     console.log(state,action);

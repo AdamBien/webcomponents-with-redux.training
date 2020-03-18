@@ -11,3 +11,8 @@ const replaceEvent = (list, newEvent) => {
     const { eventname } = newEvent;
     return list.map(existing => existing.eventname !== eventname?existing:newEvent);
 }
+
+export const addInput = (form = {}, { name, value }) => { 
+    form[name] = value;
+    return Object.assign({},form);
+}
