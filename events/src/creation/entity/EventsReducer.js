@@ -12,9 +12,12 @@ const events = (state = { events: [] }, action) => {
                 events: addOrReplace(state.events,payload)
             };
         case LINK_VALIDATED:
-            debugger
+            const { ok,status } = payload;
             return {
-                ...state
+                ...state,
+                validations: {
+                    ok,status
+                }
             }
     }
     console.log(state,action);

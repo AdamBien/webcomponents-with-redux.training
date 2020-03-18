@@ -46,8 +46,15 @@ class NewEvent extends AirElement{
         this.event[name] = value;
     }
     newEvent(e) { 
-        const { target: { form } } = e;
+        const { target: { form,form: { elements } } } = e;
         e.preventDefault();
+        const { link } = elements;
+        const { ok } = this.state.validations;
+        if (!ok) {
+            link.setCustomValidity('Link does not exist');
+        } else { 
+            link.setCustomValidity('');
+        }
         form.reportValidity();
         if(form.checkValidity())
             createEvent(this.event);
