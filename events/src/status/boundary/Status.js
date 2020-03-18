@@ -11,7 +11,7 @@ class Status extends AirElement {
         const { message } = this.state;
         return html`
             <output>${message}</output>
-            <button @click=${_ => clearMessage()}>clear</button>
+            <button ?hidden=${message===null} @click=${_ => clearMessage()}>clear</button>
         `;
     }
 }
