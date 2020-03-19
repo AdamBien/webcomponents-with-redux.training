@@ -16,8 +16,6 @@ class NewEvent extends AirElement{
     
     view() { 
         const { editMode = false } = this.state;
-        if (editMode)
-            this.event = findSelected(this.state.events);
         return html`
         <form>
             ${this.input({name:'eventname'})}

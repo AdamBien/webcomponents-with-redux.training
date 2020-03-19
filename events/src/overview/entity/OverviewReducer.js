@@ -2,7 +2,7 @@ export const EVENT_SELECTED = 'EVENT_SELECTED';
 export const DELETE_SELECTED_EVENTS = 'DELETE_SELECTED_EVENTS';
 export const EDIT_SELECTED = 'EDIT_SELECTED';
 
-import { updateSelection,deleteSelected } from "../entity/EventOperations.js";
+import { updateSelection,deleteSelected,findSelected } from "../entity/EventOperations.js";
 
 const overview = (state = { events: [] }, action) => { 
     const { type, payload } = action;
@@ -18,7 +18,8 @@ const overview = (state = { events: [] }, action) => {
         case EDIT_SELECTED:
             return {
                 ...state,
-                editMode: true
+                editMode: true,
+                form: findSelected(state.events)
             };
     }
     console.log(state,action);
