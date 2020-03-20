@@ -26,7 +26,7 @@ const events = (state = { list: [], form: {} }, action) => {
                 form: addInput(state.form,payload)
             }
     }
-    console.log(state,action);
+    
     return state;
 }
 

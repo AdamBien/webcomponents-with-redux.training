@@ -16,7 +16,6 @@ class EventsFilter extends AirElement {
     }
 
     onFilter({ target: { value } }) { 
-        console.log('...', value);
         onFilterChanged(value);
     }
 

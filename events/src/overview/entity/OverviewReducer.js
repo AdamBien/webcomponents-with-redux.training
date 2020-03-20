@@ -23,7 +23,6 @@ const overview = (state = { list: [] }, action) => {
                 form: findSelected(state.list)
             };
     }
-    console.log(state,action);
     return state;
 }
 

@@ -9,7 +9,6 @@ class EventsOverview extends AirElement {
 
     view() { 
         const { events: { list }, filter: { filter } } = this.state;
-        console.log('..EO.',filter);
         return html`
         <a-events-filter></a-events-filter>
         <a-event-actions></a-event-actions>
@@ -35,7 +34,6 @@ class EventsOverview extends AirElement {
     }
     triggerSelection(e) { 
         const { target: { name, checked } } = e;
-        console.log('selection', name, '->', checked);
         eventSelected(name, checked);
     }
 }
