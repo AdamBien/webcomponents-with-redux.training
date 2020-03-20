@@ -8,7 +8,7 @@ import './EventActions.js';
 class EventsOverview extends AirElement { 
 
     view() { 
-        const { events: { events: eventList }, filter: { filter } } = this.state;
+        const { events: { list }, filter: { filter } } = this.state;
         console.log('..EO.',filter);
         return html`
         <a-events-filter></a-events-filter>
@@ -20,7 +20,7 @@ class EventsOverview extends AirElement {
                 <th>link</th>
             </thead>
             <tbody>
-            ${eventList.filter(e => matchesCriteria(e, filter)).
+            ${list.filter(e => matchesCriteria(e, filter)).
                 map(({ eventname, description,link,checked }) => html`
             <tr>
                 <td><input name="${eventname}" ?checked=${checked} type="checkbox" @click=${e=>this.triggerSelection(e)}>${eventname}</td>

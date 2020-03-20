@@ -27,7 +27,7 @@ if (!initialState) {
     initialState = {
         events:
         {
-            events: [],
+            list: [],
             form: {}
         },
             filter: { "filter": "" }
