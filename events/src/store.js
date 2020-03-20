@@ -26,7 +26,10 @@ let initialState = load();
 if (!initialState) { 
     initialState = {
         events:
-            { events: [] },
+        {
+            events: [],
+            form: {}
+        },
             filter: { "filter": "" }
     }
 }
