@@ -25,6 +25,10 @@ public class ValidationsResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     public Result check(String uri) {
+        System.out.println("# " + uri);
+        try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {}
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target(uri);
         Response response = target.request().head();
