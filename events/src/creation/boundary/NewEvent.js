@@ -1,7 +1,6 @@
 import {  html } from "../../lib/lit-html.js";
 import { createEvent,inputChanged } from "../control/EventsControl.js";
 import AirElement from "../../AirElement.js";
-import { findSelected } from "../../overview/entity/EventOperations.js";
 import { validate } from "../control/LinkValidatorControl.js";
 
 class NewEvent extends AirElement{ 
@@ -11,11 +10,16 @@ class NewEvent extends AirElement{
     }
 
     extractState(redux) { 
-        return redux.events;
+        const { events: { list, validations, form }, status: { loading } } = redux;
+        return {
+            list,
+            validations,
+            form,
+            loading
+        }
     }
     
     view() { 
-        const { editMode = false } = this.state;
         return html`
         <form>
             ${this.input({name:'eventname'})}
@@ -28,9 +32,10 @@ class NewEvent extends AirElement{
 
     input({ name, placeholder = name }) { 
         const { form } = this.state
+        const { status } = this.state.loading;
         return html`
            <label class="label">${placeholder}
-              <input .value=${form[name]||null} class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
+              <input ?disabled=${status} .value=${form[name]||null} class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
            </label>
         `;        
     }
