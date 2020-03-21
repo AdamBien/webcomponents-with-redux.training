@@ -1,5 +1,5 @@
 import store from "../../store.js";
-import { ERROR_HAPPENED,MESSAGE_CLEARED } from "../entity/StatusReducer.js";
+import { ERROR_HAPPENED,MESSAGE_CLEARED,REQUEST_STARTED,REQUEST_COMPLETED } from "../entity/StatusReducer.js";
 
 export const clearMessage = _ => { 
     store.dispatch({
@@ -13,5 +13,18 @@ export const errorHappened = (error='unknown',message) => {
             error,
             message
         }
+    });
+}
+
+export const requestStarted = (payload) => { 
+    store.dispatch({
+        type: REQUEST_STARTED,
+        payload
+    });
+}
+export const requestCompleted = (payload) => { 
+    store.dispatch({
+        type: REQUEST_COMPLETED,
+        payload
     });
 }
