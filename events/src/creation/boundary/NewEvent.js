@@ -23,9 +23,9 @@ class NewEvent extends AirElement{
         return html`
         <form>
             ${this.input({name:'eventname'})}
-            ${this.input({name:'startdate'})}
-            ${this.input({name:'enddate'})}
-            ${this.input({ name: 'link' })}
+            ${this.input({name:'startdate',type:"date"})}
+            ${this.input({name:'enddate',type:'date'})}
+            ${this.input({ name: 'link',type:'url'})}
             ${this.input({name:'description'})}
             <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
         </form>
@@ -37,12 +37,12 @@ class NewEvent extends AirElement{
         return status ? 'is-loading' : '';
     }
 
-    input({ name, placeholder = name }) { 
+    input({ name, placeholder = name,type='text' }) { 
         const { form } = this.state
         const { status } = this.state.loading;
         return html`
            <label class="label">${placeholder}
-              <input ?disabled=${status} .value=${form[name]||null} class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
+              <input ?disabled=${status} type="${type}" .value=${form[name]||null} class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
            </label>
         `;        
     }
