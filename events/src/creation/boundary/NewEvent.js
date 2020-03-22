@@ -25,9 +25,14 @@ class NewEvent extends AirElement{
             ${this.input({name:'eventname'})}
             ${this.input({ name: 'link' })}
             ${this.input({name:'description'})}
-            <button class="button is-primary" @click=${e=> this.newEvent(e)}>save</button>
+            <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
         </form>
         `;
+    }
+
+    isLoadingClass() { 
+        const { status } = this.state.loading;
+        return status ? 'is-loading' : '';
     }
 
     input({ name, placeholder = name }) { 
