@@ -23,6 +23,8 @@ class NewEvent extends AirElement{
         return html`
         <form>
             ${this.input({name:'eventname'})}
+            ${this.input({name:'startdate'})}
+            ${this.input({name:'enddate'})}
             ${this.input({ name: 'link' })}
             ${this.input({name:'description'})}
             <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
