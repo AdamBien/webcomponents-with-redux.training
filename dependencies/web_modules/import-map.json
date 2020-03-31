@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@ui5/webcomponents/dist/Assets.js": "./@ui5/webcomponents/dist/Assets.js",
     "@ui5/webcomponents/dist/DatePicker.js": "./@ui5/webcomponents/dist/DatePicker.js"
   }
 }
