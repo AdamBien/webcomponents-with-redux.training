@@ -1,6 +1,5 @@
 {
   "imports": {
-    "lit-html": "./lit-html.js",
-    "redux": "./redux.js"
+    "@ui5/webcomponents/dist/DatePicker.js": "./@ui5/webcomponents/dist/DatePicker.js"
   }
 }
