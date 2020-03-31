@@ -2,8 +2,8 @@ import {  html } from "../../lib/lit-html.js";
 import { createEvent,inputChanged } from "../control/EventsControl.js";
 import AirElement from "../../AirElement.js";
 import { validate } from "../control/LinkValidatorControl.js";
-import "../../lib/@ui5/webcomponents/dist/DatePicker.js";
-import "../../lib/@ui5/webcomponents/dist/Assets.js";
+
+import '../../inputs/boundary/DateInput.js';
 
 class NewEvent extends AirElement{ 
 
@@ -25,9 +25,9 @@ class NewEvent extends AirElement{
         return html`
         <form>
             ${this.input({name:'eventname'})}
-            ${this.input({name:'startdate',type:"date"})}
+            ${this.input({ name: 'startdate', type: "date" })}
+            <a-dateinput></a-dateinput>
             ${this.input({ name: 'enddate', type: 'date' })}
-            ${this.datePicker()}
             ${this.input({ name: 'link',type:'url'})}
             ${this.input({name:'description'})}
             <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
@@ -35,11 +35,6 @@ class NewEvent extends AirElement{
         `;
     }
 
-    datePicker() { 
-        return html`
-            <ui5-datepicker id="myDatepicker1"></ui5-datepicker>
-        `;
-    }
 
     isLoadingClass() { 
         const { status } = this.state.loading;
