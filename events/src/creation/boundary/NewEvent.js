@@ -27,7 +27,7 @@ class NewEvent extends AirElement{
         <form>
             ${this.input({name:'eventname'})}
             <a-dateinput name='startdate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
-            ${this.input({ name: 'enddate', type: 'date' })}
+            <a-dateinput name='enddate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
             ${this.input({ name: 'link',type:'url'})}
             ${this.input({name:'description'})}
             <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>

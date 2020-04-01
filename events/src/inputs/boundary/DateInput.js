@@ -23,7 +23,7 @@ class DateInput extends AirElement {
         }
         </style>
     <label class="label">${name}
-        <ui5-datepicker name="${name}" .value=${form[name]||null} ?disabled=${this.hasAttribute('disabled')} id="myDatepicker1"></ui5-datepicker>
+        <ui5-datepicker name="${name}" .value=${form[name]||null} ?disabled=${this.hasAttribute('disabled')}></ui5-datepicker>
     </label>
         `;
     }
