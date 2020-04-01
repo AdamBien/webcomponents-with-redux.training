@@ -7,8 +7,13 @@ class DateInput extends AirElement {
 
     view() { 
         return html`
+        <style>
+        ui5-datepicker{
+            display: block;
+        }
+        </style>
     <label class="label">A label
-        <ui5-datepicker id="myDatepicker1"></ui5-datepicker>
+        <ui5-datepicker ?disabled=${this.hasAttribute('disabled')} id="myDatepicker1"></ui5-datepicker>
     </label>
         `;
     }
