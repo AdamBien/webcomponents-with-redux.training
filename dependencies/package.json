@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@ui5/webcomponents": "^1.0.0-rc.6",
+    "@vaadin/router": "^1.7.1",
     "bulma": "^0.8.0",
     "lit-html": "^1.1.2",
     "redux": "^4.0.5"
