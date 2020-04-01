@@ -5,7 +5,16 @@ import "../../lib/@ui5/webcomponents/dist/Assets.js";
 
 class DateInput extends AirElement { 
 
+    extractState(redux) { 
+        const { events: { form }} = redux;
+        return {
+            form
+        }
+    }
+        
+
     view() { 
+        const { form } = this.state;
         const name = this.getAttribute('name');
         return html`
         <style>
@@ -14,7 +23,7 @@ class DateInput extends AirElement {
         }
         </style>
     <label class="label">${name}
-        <ui5-datepicker name="${name}" ?disabled=${this.hasAttribute('disabled')} id="myDatepicker1"></ui5-datepicker>
+        <ui5-datepicker name="${name}" .value=${form[name]||null} ?disabled=${this.hasAttribute('disabled')} id="myDatepicker1"></ui5-datepicker>
     </label>
         `;
     }
