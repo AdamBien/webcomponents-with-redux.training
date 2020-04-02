@@ -30,9 +30,17 @@ class Preview extends AirElement {
         <span itemprop="startDate">${startdate}</span>
         <span itemprop="endDate" content="${enddate}">${enddate}</span>
         <a href="${link}" itemprop="url">${link}</a>
-                
+        <button @click=${_=>this.copyIntoClipboard()}>copy</button>       
         `;
+    }
+
+    async copyIntoClipboard() { 
+        const result = await navigator.permissions.query({ name: "clipboard-write" });
+            if(result.state == "granted" || result.state == "prompt") {
+                const content = this.root.innerHTML;
+                    navigator.clipboard.writeText(content);
+            }
     }
 }
 
-customElements.define('a-preview',Preview);
+customElements.define('a-preview', Preview);
