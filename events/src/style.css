@@ -20,6 +20,11 @@ nav{
     grid-area: menu;
 }
 
+.view{
+    overflow: auto;
+    height: 80vh;
+}
+
 a-neweventview{
     grid-area: view;
     display: flex;
