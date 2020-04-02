@@ -27,10 +27,13 @@ export default class AirElement extends HTMLElement {
         console.log('After extraction:', this.state);
         const template = this.view();
         console.log('View fetched');
-        render(template, this);
+        render(template, this.getRenderTarget());
         console.log('View rendered');
         console.groupEnd(this.log('triggerViewUpdate'));
+    }
 
+    getRenderTarget() { 
+        return this;
     }
 
     extractState(reduxState) { 

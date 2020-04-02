@@ -1,10 +1,19 @@
 import AirElement from "../../AirElement.js";
 import { html } from "../../lib/lit-html.js";
 
-class Preview extends AirElement { 
+class Preview extends AirElement {
+    
+    constructor() { 
+        super();
+        this.root = this.attachShadow({ mode: "open" });
+    }
 
     extractState({ events: { form} }) { 
         return { form };
+    }
+
+    getRenderTarget() { 
+        return this.root;
     }
 
     view() { 
