@@ -1,5 +1,7 @@
 import './creation/boundary/NewEventView.js'
 import './preview/boundary/Preview.js';
+import './status/boundary/Status.js';
+
 import { save } from "./localstorage/control/StorageControl.js";
 import store from "./store.js";
 import {Router} from './lib/@vaadin/router.js';

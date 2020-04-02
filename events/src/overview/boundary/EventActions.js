@@ -12,7 +12,7 @@ class EventActions extends AirElement {
     view() { 
         return html`
         <button class="button is-primary is-small" ?disabled=${!isOneRowSelected(this.state.list)} @click=${_ => editSelected()}>edit</button>
-        <button class="button is-primary is-small" ?disabled=${!isOneRowSelected(this.state.list)} @click=${_ => previewSelected()}>preview</button>
+        <button class="button is-link is-small" ?disabled=${!isOneRowSelected(this.state.list)} @click=${_ => previewSelected()}>preview</button>
         <button class="button is-danger is-small"  ?disabled=${!areSomeSelected(this.state.list)} @click=${_ => deleteSelected()}>delete</button>
         `;
     }

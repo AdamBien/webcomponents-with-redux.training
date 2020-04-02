@@ -1,6 +1,8 @@
 main{
+    height: 100vh;
     display: grid;
-    grid-template-columns: 2fr 4fr;
+    grid-template-rows: 1fr 6fr 1fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas: 
     "status status"
     "menu view"
@@ -9,21 +11,17 @@ main{
 
 header{
     grid-area: status;
-    background-color: lightblue;
 }
 footer{
     grid-area: footer;
-    background-color: lightcoral;
 }
 
 nav{
     grid-area: menu;
-    background-color: lightskyblue;
 }
 
 a-neweventview{
     grid-area: view;
-    background-color: lightgoldenrodyellow;
     display: flex;
     flex-direction: column;
     align-items: center;
