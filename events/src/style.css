@@ -1,5 +1,6 @@
 main{
     display: grid;
+    grid-template-columns: 2fr 4fr;
     grid-template-areas: 
     "status status"
     "menu view"
@@ -20,7 +21,7 @@ nav{
     background-color: lightskyblue;
 }
 
-.view{
+a-neweventview{
     grid-area: view;
     background-color: lightgoldenrodyellow;
     display: flex;

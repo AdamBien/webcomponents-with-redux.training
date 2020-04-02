@@ -1,6 +1,3 @@
-import './creation/boundary/NewEvent.js';
-import './status/boundary/Status.js';
-import './overview/boundary/EventsOverview.js';
 import './creation/boundary/NewEventView.js'
 import './preview/boundary/Preview.js';
 import { save } from "./localstorage/control/StorageControl.js";
