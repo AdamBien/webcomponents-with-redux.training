@@ -26,6 +26,8 @@ class NewEvent extends AirElement{
         return html`
         <form>
             ${this.input({name:'eventname'})}
+            ${this.input({name:'locationname',placeholder:'location name'})}
+            ${this.input({name:'address',placeholder:'location address'})}
             <a-dateinput name='startdate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
             <a-dateinput name='enddate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
             ${this.input({ name: 'link',type:'url'})}

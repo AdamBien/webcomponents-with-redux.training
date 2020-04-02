@@ -8,16 +8,16 @@ class Preview extends AirElement {
     }
 
     view() { 
-        const { startdate, enddate, description, eventname,link } = this.state.form;
+        const { startdate, enddate, description, eventname,link,locationname,address } = this.state.form;
         return html`
-
-            <meta itemprop="performer" itemtype="http://schema.org/Person" content="Adam Bien">
-        <div itemprop="name">${eventname}</div>
-        <span itemprop="description">${description}</span>
-        <span itemprop="location" itemscope="" itemtype="http://schema.org/Place">
-            <span itemprop="name">Mayflower</span>
-            <span itemprop="address" itemtype="http://schema.org/Text">MUC</span>
-        </span>
+        <link rel="stylesheet" type="text/css" media="all" href="http://adambien.blog/roller/abien/page/basic-custom.css">
+        <meta itemprop="performer" itemtype="http://schema.org/Person" content="Adam Bien">
+            <div itemprop="name">${eventname}</div>
+            <span itemprop="description">${description}</span>
+            <span itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                <span itemprop="name">${locationname}</span>
+                <span itemprop="address" itemtype="http://schema.org/Text">${address}</span>
+            </span>
         <span itemprop="startDate">${startdate}</span>
         <span itemprop="endDate" content="${enddate}">${enddate}</span>
         <a href="${link}" itemprop="url">${link}</a>
