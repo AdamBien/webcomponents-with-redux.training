@@ -5,4 +5,4 @@ the [WebComponents with lit-html and redux](http://webcomponents-with-redux.trai
 workshop.
 
 
-![Web Components with lit-html and redux](https://i.vimeocdn.com/vod_page_thumbnail/105023.jpg)
+[![Web Components with lit-html and redux](https://i.vimeocdn.com/vod_page_thumbnail/105023.jpg)](http://webcomponents-with-redux.training)
