@@ -1,4 +1,4 @@
-# Web Components with redux and lit-html
+# Building web apps with Web Components, redux and lit-html
 
 This repository hosts the "events" application which was developed during the
 the [WebComponents with lit-html and redux](http://webcomponents-with-redux.training)
