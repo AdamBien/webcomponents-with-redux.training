@@ -22,13 +22,13 @@ Checkout all online workshops: http://airhacks.io
 
 To launch the application web application:
 
-1. `cd events`
-2. Install [browsersync](https://www.browsersync.io)
+1. Install [browsersync](https://www.browsersync.io)
+2. `cd events`
 3. Perform: `browser-sync src -f src -b "google chrome" --no-notify`
 
 ### (optional) backend
 
-1. `cd validator`
-2. Install [quarkus](https://quarkus.io/get-started/)
+1. Install [quarkus](https://quarkus.io/get-started/)
+2. `cd validator`
 3. Perform: `./mvnw compile quarkus:dev`
 
