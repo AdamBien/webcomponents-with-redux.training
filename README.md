@@ -9,6 +9,9 @@ workshop.
 
 
 New to Web Standards? Checkout: http://webstandards.training
+
 New to Web Components? Checkout: http://webcomponents.training
+
 Never built an app? Checkout: http://effectiveweb.training
+
 Checkout all online workshops: http://airhacks.io
