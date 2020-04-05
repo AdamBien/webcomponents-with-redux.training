@@ -15,3 +15,20 @@ New to Web Components? Checkout: http://webcomponents.training
 Never built an app? Checkout: http://effectiveweb.training
 
 Checkout all online workshops: http://airhacks.io
+
+## Installation
+
+### frontend
+
+To launch the application web application:
+
+1. `cd events`
+2. Install [browsersync](https://www.browsersync.io)
+3. Perform: `browser-sync src -f src -b "google chrome" --no-notify`
+
+### (optional) backend
+
+1. `cd validator`
+2. Install [quarkus](https://quarkus.io/get-started/)
+3. Perform: `./mvnw compile quarkus:dev`
+
