@@ -34,5 +34,7 @@ To launch the application web application:
 
 # walk through
 
+A walk through the application code:
+
 [![events app walk through](https://i.ytimg.com/vi/NGJubEB_xgc/mqdefault.jpg)](https://www.youtube.com/embed/NGJubEB_xgc?rel=0)
 
