@@ -32,3 +32,7 @@ To launch the application web application:
 2. `cd validator`
 3. Perform: `./mvnw compile quarkus:dev`
 
+# walk through
+
+[![events app walk through](https://i.ytimg.com/vi/NGJubEB_xgc/mqdefault.jpg)](https://www.youtube.com/embed/NGJubEB_xgc?rel=0)
+
