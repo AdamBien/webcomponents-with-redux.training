@@ -1,12 +1,32 @@
 main{
     height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 6fr 1fr;
-    grid-template-columns: 1fr 4fr;
-    grid-template-areas: 
-    "status status"
-    "menu view"
-    "footer footer";
+}
+
+@media screen and (max-width: 40em){
+    main{
+        grid-template-rows: 1fr 2fr 6fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "status"
+        "menu"
+        "iew"
+        "footer";
+    }
+    li{
+        display: inline;
+    }
+}
+
+@media screen and (min-width: 40em){
+    main{
+        grid-template-rows: 1fr 6fr 1fr;
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas: 
+        "status status"
+        "menu view"
+        "footer footer";
+    }
 }
 
 header{
