@@ -10,7 +10,7 @@ main{
         grid-template-areas: 
         "status"
         "menu"
-        "iew"
+        "view"
         "footer";
     }
     li{
