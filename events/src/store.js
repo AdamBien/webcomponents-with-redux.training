@@ -30,7 +30,15 @@ if (!initialState) {
             list: [],
             form: {}
         },
-            filter: { "filter": "" }
+        filter: { "filter": "" },
+        status: {
+            loading: {
+                status: '',
+                message: ''
+            },
+            message:''
+        }
+        
     }
 }
 
