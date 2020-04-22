@@ -7,21 +7,27 @@ import { updateSelection,deleteSelected,findSelected } from "../entity/EventOper
 const overview = (state = { list: [] }, action) => { 
     const { type, payload } = action;
     switch (type) { 
-        case EVENT_SELECTED:
+        case EVENT_SELECTED: {
+            const selection = '';
             const { name, checked } = payload;
             updateSelection(state.list, name, checked);
             return state;
-        case DELETE_SELECTED_EVENTS:
+        }
+        case DELETE_SELECTED_EVENTS: {
+        
+            const selection = '';
             return {
                 ...state,
                 list: deleteSelected(state.list)
             };
-        case EDIT_SELECTED:
+        }
+        case EDIT_SELECTED: {
             return {
                 ...state,
                 editMode: true,
                 form: findSelected(state.list)
             };
+        }
     }
     return state;
 }
