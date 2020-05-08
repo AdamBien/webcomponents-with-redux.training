@@ -28,7 +28,11 @@ if (!initialState) {
         events:
         {
             list: [],
-            form: {}
+            form: {},
+            validations: {
+                ok: false,
+                status: 404
+            }
         },
         filter: { "filter": "" },
         status: {
