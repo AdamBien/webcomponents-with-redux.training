@@ -19,16 +19,19 @@ class EventsOverview extends AirElement {
                 <th>end</th>
                 <th>description</th>
                 <th>link</th>
+                <th>online</th>
             </thead>
             <tbody>
             ${list.filter(e => matchesCriteria(e, filter)).
-                map(({ eventname, description,startdate,enddate,link,checked }) => html`
+                map(({ eventname, description,startdate,enddate,link,checked,online }) => html`
             <tr>
                 <td><input name="${eventname}" ?checked=${checked} type="checkbox" @click=${e=>this.triggerSelection(e)}>${eventname}</td>
                 <td>${startdate}</td>
                 <td>${enddate}</td>
                 <td>${description}</td>
                 <td>${link}</td>
+                <td>${online}</td>
+                
             </tr>
              `)}
 

@@ -22,7 +22,7 @@ class NewEvent extends AirElement{
     }
     
     view() { 
-        const { status } = this.state.loading;
+        const { loading: { status },form } = this.state;
         return html`
         <form>
             ${this.input({name:'eventname'})}
@@ -33,7 +33,7 @@ class NewEvent extends AirElement{
             ${this.input({ name: 'link',type:'url'})}
             ${this.input({ name: 'description' })}
             <label class="checkbox" for="online">online</label>
-            <input type="checkbox" id="online" name="online" @change=${e => this.onOnline(e)}>
+            <input type="checkbox" id="online" name="online" .checked=${form["online"]||false} @change=${e => this.onOnline(e)}>
             <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
         </form>
         `;
