@@ -31,12 +31,20 @@ class NewEvent extends AirElement{
             <a-dateinput name='startdate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
             <a-dateinput name='enddate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
             ${this.input({ name: 'link',type:'url'})}
-            ${this.input({name:'description'})}
+            ${this.input({ name: 'description' })}
+            <label class="checkbox" for="online">online</label>
+            <input type="checkbox" id="online" name="online" @change=${e => this.onOnline(e)}>
             <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
         </form>
         `;
     }
 
+
+    onOnline({ target: { name, checked } }) { 
+        console.log('checkbox', name, checked);
+        inputChanged(name, checked);
+
+    }
 
     isLoadingClass() { 
         const { status } = this.state.loading;
