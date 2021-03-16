@@ -11,8 +11,6 @@ store.subscribe(_ => {
     save(state);
 })
 
-
-
 const outlet = document.querySelector('.view');
 const router = new Router(outlet);
 router.setRoutes([
