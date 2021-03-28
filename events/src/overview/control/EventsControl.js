@@ -27,3 +27,18 @@ export const deleteSelected = () => {
         type: DELETE_SELECTED_EVENTS
     });    
 }
+
+
+export const sortByDate = (a, b) => {
+    const first = Date.parse(a);
+    const second = Date.parse(b);
+
+    if (first > second)
+        return 1;
+    else if (first < second)
+        return -1;
+    else
+        return 0;
+
+    
+}

@@ -2,7 +2,7 @@ import { html,render } from "../../lib/lit-html.js";
 import AirElement from "../../AirElement.js";
 import '../../filter/boundary/EventsFilter.js'
 import matchesCriteria from '../entity/Filter.js';
-import { eventSelected } from "../control/EventsControl.js";
+import { eventSelected, sortByDate } from "../control/EventsControl.js";
 import './EventActions.js';
 
 class EventsOverview extends AirElement { 
@@ -23,6 +23,7 @@ class EventsOverview extends AirElement {
             </thead>
             <tbody>
             ${list.filter(e => matchesCriteria(e, filter)).
+            sort(({startdate}, {enddate}) => sortByDate(startdate,enddate)).
                 map(({ eventname, description,startdate,enddate,link,checked,online }) => html`
             <tr>
                 <td><input name="${eventname}" ?checked=${checked} type="checkbox" @click=${e=>this.triggerSelection(e)}>${eventname}</td>
@@ -39,6 +40,9 @@ class EventsOverview extends AirElement {
         </table>
         `;
     }
+
+
+
     triggerSelection(e) { 
         const { target: { name, checked } } = e;
         eventSelected(name, checked);
