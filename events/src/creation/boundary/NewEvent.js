@@ -27,13 +27,14 @@ class NewEvent extends AirElement{
         <form>
             ${this.input({name:'eventname'})}
             ${this.input({name:'locationname',placeholder:'location name'})}
-            ${this.input({name:'address',placeholder:'location address'})}
-            <a-dateinput name='startdate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
+            <label class="checkbox" for="online">online</label>
+            <input type="checkbox" id="online" name="online" .checked=${form["online"]||false} @change=${e => this.onOnline(e)}>
+
+            ${this.input({ name: 'address', placeholder: 'location address' })}
+            <a-dateinput name='startdate' ?disabled=${status} @change=${e => this.onStartDate(e)}></a-dateinput>
             <a-dateinput name='enddate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
             ${this.input({ name: 'link',type:'url'})}
             ${this.input({ name: 'description' })}
-            <label class="checkbox" for="online">online</label>
-            <input type="checkbox" id="online" name="online" .checked=${form["online"]||false} @change=${e => this.onOnline(e)}>
             <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
         </form>
         `;
@@ -42,6 +43,11 @@ class NewEvent extends AirElement{
 
     onOnline({ target: { name, checked } }) { 
         console.log('checkbox', name, checked);
+        if (checked) {
+            inputChanged('locationname', 'online');
+        } else {
+            inputChanged('locationname', '');
+        }
         inputChanged(name, checked);
 
     }
@@ -61,6 +67,14 @@ class NewEvent extends AirElement{
         `;        
     }
 
+    
+    onStartDate({ target: { name,value } }) { 
+        inputChanged("enddate",value);
+        inputChanged(name, value);
+
+    }
+
+    
     onUserInput({ target: { name,value } }) { 
         if (name === 'link') { 
             validate(value);
