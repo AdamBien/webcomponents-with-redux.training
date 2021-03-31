@@ -1,12 +1,12 @@
 import store from '../../store.js'
 import { FILTER_CHANGED } from "../entity/FilterReducer.js";
-import {  } from "../../lib/redux-toolkit.esm.js";
-const onFilterChanged = payload => { 
+import { createAction } from "../../lib/redux-toolkit.esm.js";
 
-    store.dispatch({
-        type: FILTER_CHANGED,
-        payload
-    })
+const onFilterChangedAction = createAction(FILTER_CHANGED);
+
+const onFilterChanged = payload => {
+    const action = onFilterChangedAction(payload);
+    store.dispatch(action);
 }
 
 export { onFilterChanged };
