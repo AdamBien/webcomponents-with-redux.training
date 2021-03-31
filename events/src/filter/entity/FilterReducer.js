@@ -1,16 +1,9 @@
-const FILTER_CHANGED = 'FILTER_CHANGED';
+import { createReducer } from "../../lib/redux-toolkit.esm.js";
+import { onFilterChangedAction } from "../control/FilterControl.js";
+const initialState = { filter: '' };
+export const filter = createReducer(initialState, (builder) => {
+    builder.addCase(onFilterChangedAction, (state, { payload }) => {
+        state.filter = payload;
+    });
+});
 
-const filter = (state = { filter: '' }, action) => { 
-    const { type, payload } = action;
-    switch (type) { 
-        case FILTER_CHANGED:
-            return {
-                filter: payload
-            }
-    }
-    return state;
-
-}
-
-export default filter;
-export { FILTER_CHANGED };
