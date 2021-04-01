@@ -12,10 +12,9 @@ export const eventSelected = (name, checked) => {
     store.dispatch(action);
 
 }
+const editSelectedAction = createAction(EDIT_SELECTED);
 export const editSelected = () => {
-    store.dispatch({
-        type: EDIT_SELECTED
-    });
+    store.dispatch(editSelectedAction());
 }
 
 export const previewSelected = () => {
@@ -23,10 +22,9 @@ export const previewSelected = () => {
     Router.go("/preview");
 
 }
+const deleteSelectedAction =  createAction(DELETE_SELECTED_EVENTS);
 export const deleteSelected = () => { 
-    store.dispatch({
-        type: DELETE_SELECTED_EVENTS
-    });    
+    store.dispatch(deleteSelectedAction());    
 }
 
 
