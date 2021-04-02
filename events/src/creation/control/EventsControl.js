@@ -1,6 +1,8 @@
 import { createAction } from "../../lib/redux-toolkit.esm.js";
 import store from "../../store.js";
-import { NEW_EVENT_CREATED, INPUT_CHANGED } from "../entity/EventsReducer.js";
+
+const NEW_EVENT_CREATED = 'NEW_EVENT_CREATED';
+const INPUT_CHANGED = 'INPUT_CHANGED';
 
 export const createEventAction = createAction(NEW_EVENT_CREATED);
 

@@ -1,33 +1,21 @@
-import { addOrReplace,addInput } from "./EditOperations.js";
-export const NEW_EVENT_CREATED = 'NEW_EVENT_CREATED';
-export const LINK_VALIDATED = 'LINK_VALIDATED';
-export const INPUT_CHANGED = 'INPUT_CHANGED';
+import { createReducer } from "../../lib/redux-toolkit.esm.js";
+import { createEventAction, inputChangedAction } from "../control/EventsControl.js";
+import { linkValidatedAction } from "../control/LinkValidatorControl.js";
+import { addOrReplace, addInput } from "./EditOperations.js";
+const initialState = { list: [], form: {} };
 
-const events = (state = { list: [], form: {} }, action) => { 
-    const { type, payload } = action;
-    switch (type) { 
-        case NEW_EVENT_CREATED:
-            return {
-                ...state,
-                editMode: false,
-                list: addOrReplace(state.list,state.form)
-            };
-        case LINK_VALIDATED:
-            const { ok,status } = payload;
-            return {
-                ...state,
-                validations: {
-                    ok,status
-                }
-            }
-        case INPUT_CHANGED:
-            return {
-                ...state,
-                form: addInput(state.form,payload)
-            }
-    }
-    
-    return state;
-}
+const events = createReducer(initialState, (builder) => {
+    builder.addCase(createEventAction, (state, _) => {
+        state.editMode = false,
+        state.list = addOrReplace(state.list,state.form)
+
+    }).addCase(linkValidatedAction, (state, { payload: { ok, status } }) => {
+        state.validations = {
+            ok,status
+        }
+    }).addCase(inputChangedAction, (state, { payload }) => {
+        state.form = addInput(state.form, payload);
+    });
+});
 
 export default events;

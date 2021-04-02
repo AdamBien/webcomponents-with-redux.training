@@ -1,7 +1,7 @@
 import { errorHappened,requestCompleted,requestStarted } from "../../status/control/StatusControl.js";
-import { LINK_VALIDATED } from "../entity/EventsReducer.js";
 import store from '../../store.js';
 import { createAction } from "../../lib/redux-toolkit.esm.js";
+const LINK_VALIDATED = 'LINK_VALIDATED';
 
 export const linkValidatedAction = createAction(LINK_VALIDATED);
 
