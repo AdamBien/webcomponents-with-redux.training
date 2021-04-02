@@ -1,6 +1,6 @@
 import { createStore,combineReducers } from "./lib/redux.js";
 import events from "./creation/entity/EventsReducer.js";
-import overview from "./overview/entity/OverviewReducer.js";
+import { overview } from "./overview/entity/OverviewReducer.js";
 import { filter } from "./filter/entity/FilterReducer.js";
 import status from "./status/entity/StatusReducer.js";
 import { load } from "./localstorage/control/StorageControl.js";

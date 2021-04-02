@@ -1,9 +1,23 @@
 import { createReducer } from "../../lib/redux-toolkit.esm.js";
 import { eventSelectedAction,deleteSelectedAction, editSelectedAction } from "../control/EventsControl.js";
-import { updateSelection,deleteSelected,findSelected } from "../entity/EventOperations.js";
+import { findEvent } from "./EventOperations.js";
 const initialState = { list: [] }
 
-const overview = createReducer(initialState, (builder) => {
+
+const updateSelection = (list, eventname, checked) => { 
+    const event = findEvent(list,eventname);    
+    event['checked'] = checked;
+}
+
+const deleteSelected = (list) => { 
+    return list.filter(event => !event.checked);
+}
+
+const findSelected = (list) => { 
+    return list.find(event => event.checked);
+}
+
+export const overview = createReducer(initialState, (builder) => {
     builder.addCase(eventSelectedAction, (state, { payload: { name,checked}}) => {
         updateSelection(state.list, name, checked);
     }).addCase(deleteSelectedAction, (state, _) => {
@@ -13,5 +27,3 @@ const overview = createReducer(initialState, (builder) => {
         state.form = findSelected(state.list);
     });
 });
-
-export default overview;
