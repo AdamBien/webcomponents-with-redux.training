@@ -4,7 +4,7 @@ import { linkValidatedAction } from "../control/LinkValidatorControl.js";
 import { addOrReplace, addInput } from "./EditOperations.js";
 const initialState = { list: [], form: {} };
 
-const events = createReducer(initialState, (builder) => {
+export const events = createReducer(initialState, (builder) => {
     builder.addCase(createEventAction, (state, _) => {
         state.editMode = false,
         state.list = addOrReplace(state.list,state.form)
@@ -18,4 +18,4 @@ const events = createReducer(initialState, (builder) => {
     });
 });
 
-export default events;
+
