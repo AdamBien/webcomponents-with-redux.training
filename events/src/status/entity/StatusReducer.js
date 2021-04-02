@@ -1,13 +1,11 @@
 import { createReducer } from "../../lib/redux-toolkit.esm.js";
 import { clearMessageAction, errorHappenedAction, requestCompletedAction, requestStartedAction } from "../control/StatusControl.js";
 const initialState = {
-    status: {
         loading: {
             status: '',
             message: ''
         },
         message: ''
-    }
 }
 export const status = createReducer(initialState, (builder) => {
     builder.addCase(errorHappenedAction, (state, { payload: { error, message } }) => {

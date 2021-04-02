@@ -18,6 +18,6 @@ const reducer = {
 
 
 const preloadedState = load();
-const config = {reducer,preloadedState};
+const config = preloadedState ? { reducer, preloadedState } : {reducer};
 const store = configureStore(config);
 export default store;
