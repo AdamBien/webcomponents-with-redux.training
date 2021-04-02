@@ -20,29 +20,6 @@ const combinedReducer = combineReducers({
 
 let initialState = load();
 
-if (!initialState) { 
-    initialState = {
-        events:
-        {
-            list: [],
-            form: {},
-            validations: {
-                ok: false,
-                status: 404
-            }
-        },
-        filter: { "filter": "" },
-        status: {
-            loading: {
-                status: '',
-                message: ''
-            },
-            message:''
-        }
-        
-    }
-}
-
 
 const store = createStore(combinedReducer,initialState,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
