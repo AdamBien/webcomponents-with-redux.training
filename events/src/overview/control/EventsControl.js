@@ -1,11 +1,8 @@
-export const EVENT_SELECTED = 'EVENT_SELECTED';
-export const DELETE_SELECTED_EVENTS = 'DELETE_SELECTED_EVENTS';
-export const EDIT_SELECTED = 'EDIT_SELECTED';
 import store from "../../store.js";
 import { Router } from '../../lib/@vaadin/router.js';
 import { createAction } from "../../lib/redux-toolkit.esm.js";
-export const eventSelectedAction =  createAction(EVENT_SELECTED);
 
+export const eventSelectedAction = createAction("eventSelectedAction");
 export const eventSelected = (name, checked) => {
     const action = eventSelectedAction( {
         name,
@@ -14,7 +11,7 @@ export const eventSelected = (name, checked) => {
     store.dispatch(action);
 
 }
-export const editSelectedAction = createAction(EDIT_SELECTED);
+export const editSelectedAction = createAction("editSelectedAction");
 export const editSelected = () => {
     store.dispatch(editSelectedAction());
 }
@@ -24,7 +21,7 @@ export const previewSelected = () => {
     Router.go("/preview");
 
 }
-export const deleteSelectedAction =  createAction(DELETE_SELECTED_EVENTS);
+export const deleteSelectedAction =  createAction("deleteSelectedAction");
 export const deleteSelected = () => { 
     store.dispatch(deleteSelectedAction());    
 }
