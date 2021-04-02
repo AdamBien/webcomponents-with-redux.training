@@ -4,10 +4,9 @@ import { overview } from "./overview/entity/OverviewReducer.js";
 import { filter } from "./filter/entity/FilterReducer.js";
 import { status } from "./status/entity/StatusReducer.js";
 import { load } from "./localstorage/control/StorageControl.js";
-const deepCopy = input => JSON.parse(JSON.stringify(input));
 
 const chainedEventsReducer = (state, action) => { 
-    const eventsResult = deepCopy(events(state, action));
+    const eventsResult = events(state, action);
     return overview(eventsResult,action);
 }
 
@@ -17,9 +16,7 @@ const combinedReducer = combineReducers({
     status
 });
 
-const copyingReducer = (state, action) => { 
-    return deepCopy(combinedReducer(state,action));
-}
+
 
 let initialState = load();
 
@@ -47,5 +44,5 @@ if (!initialState) {
 }
 
 
-const store = createStore(copyingReducer,initialState,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(combinedReducer,initialState,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
