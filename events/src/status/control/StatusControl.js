@@ -1,6 +1,12 @@
 import { createAction } from "../../lib/redux-toolkit.esm.js";
 import store from "../../store.js";
-import { ERROR_HAPPENED,MESSAGE_CLEARED,REQUEST_STARTED,REQUEST_COMPLETED } from "../entity/StatusReducer.js";
+
+const ERROR_HAPPENED = 'ERROR_HAPPENED';
+const MESSAGE_CLEARED = 'MESSAGE_CLEARED';
+const REQUEST_STARTED = 'REQUEST_STARTED';
+const REQUEST_COMPLETED = 'REQUEST_COMPLETED';
+
+
 export const clearMessageAction = createAction(MESSAGE_CLEARED);
 export const clearMessage = _ => { 
     store.dispatch(clearMessageAction());

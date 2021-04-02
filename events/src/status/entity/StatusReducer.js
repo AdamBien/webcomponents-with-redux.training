@@ -1,42 +1,22 @@
-export const ERROR_HAPPENED = 'ERROR_HAPPENED';
-export const MESSAGE_CLEARED = 'MESSAGE_CLEARED';
-export const REQUEST_STARTED = 'REQUEST_STARTED';
-export const REQUEST_COMPLETED = 'REQUEST_COMPLETED';
+import { createReducer } from "../../lib/redux-toolkit.esm.js";
+import { clearMessageAction, errorHappenedAction, requestCompletedAction, requestStartedAction } from "../control/StatusControl.js";
 
-const status = (state = {}, action) => {
-    const { type, payload } = action;
-    switch (type) { 
-        case ERROR_HAPPENED:
-            const { error, message } = payload;
-            return {
-                ...state,
-                error,
-                message
-            }
-        case MESSAGE_CLEARED:
-            return {
-                ...state,
-                message: null,
-                error: {}
-            }
-        case REQUEST_STARTED:
-            return {
-                ...state,
-                loading: {
-                    status: true,
-                    message: payload
-                }
-            }
-        case REQUEST_COMPLETED:
-            return {
-                ...state,
-                loading: {
-                    status: false,
-                    message: payload
-                }
-            }
-    }
-    return state;
-}
-
-export default status;
+export const status = createReducer({}, (builder) => {
+    builder.addCase(errorHappenedAction, (state, { payload: { error, message } }) => {
+        state.error = error;
+        state.message = message;
+    }).addCase(clearMessageAction, (state, _) => {
+        state.message = null;
+        state.error = {}
+    }).addCase(requestStartedAction, (state, {payload}) => {
+       state.loading = {
+        status: true,
+        message: payload
+    } 
+    }).addCase(requestCompletedAction, (state, { payload }) => {
+        state.loading = {
+            status: false,
+            message: payload
+        }
+    });
+});
