@@ -1,15 +1,15 @@
 import { errorHappened,requestCompleted,requestStarted } from "../../status/control/StatusControl.js";
 import { LINK_VALIDATED } from "../entity/EventsReducer.js";
 import store from '../../store.js';
+import { createAction } from "../../lib/redux-toolkit.esm.js";
 
-const dispatchResult = ({ ok, status }) => { 
-    store.dispatch({
-        type: LINK_VALIDATED,
-        payload: {
-            ok,
-            status
-        }
-    })
+export const linkValidatedAction = createAction(LINK_VALIDATED);
+
+const dispatchResult = ({ ok, status }) => {
+    store.dispatch(linkValidatedAction({
+        ok,
+        status
+    }));
 }
 
 export const validate = async (url) => { 
