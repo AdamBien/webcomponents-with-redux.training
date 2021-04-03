@@ -26,7 +26,7 @@ class EventsOverview extends AirElement {
             sort(({startdate}, {enddate}) => sortByDate(startdate,enddate)).
                 map(({ eventname, description,startdate,enddate,link,checked,online }) => html`
             <tr>
-                <td><input name="${eventname}" ?checked=${checked} type="checkbox" @click=${e=>this.triggerSelection(e)}>${eventname}</td>
+                <td><input name="${eventname}" .checked=${checked} type="checkbox" @click=${e=>this.triggerSelection(e)}>${eventname}</td>
                 <td>${startdate}</td>
                 <td>${enddate}</td>
                 <td>${description}</td>
