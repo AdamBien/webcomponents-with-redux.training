@@ -1,6 +1,6 @@
 import AirElement from "../../AirElement.js";
 import { html } from "../../lib/lit-html.js";
-import { deleteSelected, editSelected,previewSelected } from "../control/EventsControl.js";
+import { deleteSelected, deselectAll, editSelected,previewSelected } from "../control/EventsControl.js";
 import { areSomeSelected,isOneRowSelected } from "../entity/EventOperations.js";
 
 class EventActions extends AirElement { 
@@ -13,7 +13,7 @@ class EventActions extends AirElement {
         return html`
         <button class="button is-primary is-small" ?disabled=${!isOneRowSelected(this.state.list)} @click=${_ => editSelected()}>edit</button>
         <button class="button is-link is-small" ?disabled=${!isOneRowSelected(this.state.list)} @click=${_ => previewSelected()}>preview</button>
-        <button class="button is-warning is-small" ?disabled=${!areSomeSelected(this.state.list)} @click=${_ => previewSelected()}>deselect all</button>
+        <button class="button is-warning is-small" ?disabled=${!areSomeSelected(this.state.list)} @click=${_ => deselectAll()}>deselect all</button>
         <button class="button is-danger is-small"  ?disabled=${!areSomeSelected(this.state.list)} @click=${_ => deleteSelected()}>delete</button>
         `;
     }

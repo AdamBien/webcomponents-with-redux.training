@@ -21,6 +21,12 @@ export const previewSelected = () => {
     Router.go("/preview");
 
 }
+
+export const deselectAllAction = createAction("deselectAllAction");
+export const deselectAll = () => {
+    store.dispatch(deselectAllAction());
+}
+
 export const deleteSelectedAction =  createAction("deleteSelectedAction");
 export const deleteSelected = () => { 
     store.dispatch(deleteSelectedAction());    
