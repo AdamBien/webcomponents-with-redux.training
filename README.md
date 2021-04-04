@@ -14,7 +14,9 @@ New to Web Components? Checkout: http://webcomponents.training
 
 Never built an app? Checkout: http://effectiveweb.training
 
-Checkout all online workshops: http://airhacks.io
+Migration to redux toolkit: https://vimeo.com/ondemand/redux
+
+Checkout all online workshops: https://airhacks.io
 
 ## Installation
 
