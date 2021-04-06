@@ -22,7 +22,7 @@ Checkout all online workshops: https://airhacks.io
 
 ### frontend
 
-To launch the application web application:
+To launch the web application:
 
 1. Install [browsersync](https://www.browsersync.io)
 2. `cd events`
