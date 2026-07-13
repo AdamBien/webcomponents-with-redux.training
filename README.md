@@ -77,13 +77,12 @@ graph LR
 
 ### frontend
 
-To launch the web application:
+To launch the web application, serve `events/src` with any static web server that falls back to `index.html` for unknown paths (required for deep links like `/preview`), e.g. with [zws](https://github.com/adamBien/zws) (zero dependencies web server, requires Java):
 
-1. Install [browsersync](https://www.browsersync.io)
-2. `cd events`
-3. Perform: `browser-sync src -f src -b "google chrome" --no-notify --single`
-
-The `--single` flag serves `index.html` for unknown paths — required for deep links like `/preview`.
+```bash
+cd events/src
+zws.sh --single
+```
 
 ### (optional) backend
 
