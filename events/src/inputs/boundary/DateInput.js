@@ -20,8 +20,8 @@ class DateInput extends AirElement {
         const { form } = this.state;
         const name = this.getAttribute('name');
         return html`
-        <label class="label">${name}
-            <input class="input is-primary" type="date" name="${name}" .value=${form[name] || ''} ?disabled=${this.hasAttribute('disabled')}>
+        <label>${name}
+            <input type="date" name="${name}" .value=${form[name] || ''} ?disabled=${this.hasAttribute('disabled')}>
         </label>
         `;
     }

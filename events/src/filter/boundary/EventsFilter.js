@@ -11,7 +11,7 @@ class EventsFilter extends AirElement {
     view() { 
         const { filter } = this.state;
         return html`
-            <input class="input" .value=${filter} placeholder="keyword" @keyup=${e => this.onFilter(e)}>
+            <input type="search" aria-label="filter events" .value=${filter} placeholder="keyword" @keyup=${e => this.onFilter(e)}>
         `
     }
 

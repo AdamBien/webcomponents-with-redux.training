@@ -27,15 +27,16 @@ class NewEvent extends AirElement{
         <form>
             ${this.input({name:'eventname'})}
             ${this.input({name:'locationname',placeholder:'location name'})}
-            <label class="checkbox" for="online">online</label>
-            <input type="checkbox" id="online" name="online" .checked=${form["online"]||false} @change=${e => this.onOnline(e)}>
+            <label for="online">online
+                <input type="checkbox" id="online" name="online" .checked=${form["online"]||false} @change=${e => this.onOnline(e)}>
+            </label>
 
             ${this.input({ name: 'address', placeholder: 'location address' })}
             <a-dateinput name='startdate' ?disabled=${status} @change=${e => this.onStartDate(e)}></a-dateinput>
             <a-dateinput name='enddate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
             ${this.input({ name: 'link',type:'url'})}
             ${this.input({ name: 'description' })}
-            <button class="button is-primary ${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
+            <button type="submit" class="${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
         </form>
         `;
     }
@@ -52,19 +53,19 @@ class NewEvent extends AirElement{
 
     }
 
-    isLoadingClass() { 
+    isLoadingClass() {
         const { status } = this.state.loading;
-        return status ? 'is-loading' : '';
+        return status ? 'loading' : '';
     }
 
-    input({ name, placeholder = name,type='text' }) { 
+    input({ name, placeholder = name,type='text' }) {
         const { form } = this.state
         const { status } = this.state.loading;
         return html`
-           <label class="label">${placeholder}
-              <input ?disabled=${status} type="${type}" .value=${form[name]||null} class="input is-primary" required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
+           <label>${placeholder}
+              <input ?disabled=${status} type="${type}" .value=${form[name]||null} required name="${name}" placeholder="${placeholder}" @change=${e=>this.onUserInput(e)} >
            </label>
-        `;        
+        `;
     }
 
     

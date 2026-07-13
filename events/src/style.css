@@ -1,10 +1,24 @@
+/* component layer: consumes the design tokens from /tokens.css */
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
 body{
+    margin: 0;
     container-type: inline-size;
+
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-on-surface);
+    background-color: var(--color-surface);
 }
 
 main{
     min-height: 100dvh;
     display: grid;
+    border-left: 2px solid var(--color-accent-border);
 }
 
 @container (max-width: 40em){
@@ -17,7 +31,7 @@ main{
         "view"
         "footer";
     }
-    li{
+    nav li{
         display: inline;
     }
 }
@@ -35,9 +49,13 @@ main{
 
 header{
     grid-area: status;
+    padding: var(--spacing-sm) var(--spacing-md);
 }
 footer{
+    display: flex;
     grid-area: footer;
+    align-items: end;
+    padding: var(--spacing-sm) var(--spacing-md);
 }
 
 nav{
@@ -49,19 +67,170 @@ nav{
     min-height: 80dvh;
 }
 
+a{
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+:focus-visible{
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav a{
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--rounded-md);
+    color: var(--color-on-surface);
+}
+nav a:hover{
+    background-color: var(--color-neutral);
+    color: var(--color-on-surface-strong);
+}
+
 a-neweventview{
     grid-area: view;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-block: var(--spacing-lg);
 }
+
 a-newevent form{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: var(--spacing-md);
+    width: min(40ch, 100%);
+}
+label{
+    display: grid;
+    gap: var(--spacing-sm);
+    width: 100%;
+    font-weight: 700;
+    color: var(--color-on-surface-strong);
+}
+label:has(input[type="checkbox"]){
+    display: flex;
+    align-items: center;
+}
+input{
+    font: inherit;
+    width: 100%;
+    height: 40px;
+    padding: 0 var(--spacing-sm);
+    color: var(--color-on-surface-strong);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--rounded-md);
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.05);
+}
+input[type="checkbox"]{
+    width: auto;
+    height: auto;
+    accent-color: var(--color-primary);
+    box-shadow: none;
+}
+input::placeholder{
+    color: var(--color-on-surface);
+    opacity: 0.5;
+}
+input:user-invalid{
+    border-color: var(--color-danger);
+}
+
+button{
+    font: inherit;
+    border: none;
+    border-radius: var(--rounded-md);
+    cursor: pointer;
+}
+
+a-newevent form button{
+    height: 40px;
+    padding: 0 var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+a-newevent form button:hover{
+    background-color: color-mix(in oklab, var(--color-primary), black 8%);
+}
+a-newevent form button.loading{
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 a-events-overview{
     width: 80%;
-    padding-top: 10%;
+    padding-top: var(--spacing-lg);
+}
+
+a-events-filter input{
+    margin-block: var(--spacing-sm);
+}
+
+a-event-actions button{
+    font-size: 12px;
+    height: 30px;
+    padding: 0 var(--spacing-sm);
+    border-radius: var(--rounded-sm);
+    background-color: var(--color-neutral);
+    color: var(--color-on-neutral);
+}
+a-event-actions button:hover{
+    background-color: var(--color-neutral-hover);
+}
+a-event-actions button.preview{
+    color: var(--color-secondary);
+}
+a-event-actions button.delete{
+    background-color: var(--color-danger-surface);
+    color: var(--color-danger);
+}
+a-event-actions button.delete:focus-visible{
+    outline-color: var(--color-danger);
+}
+a-event-actions button[disabled]{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+a-events-overview table{
+    width: 100%;
+    margin-block: var(--spacing-md);
+    border-collapse: collapse;
+}
+a-events-overview th, a-events-overview td{
+    padding: var(--spacing-sm);
+    text-align: left;
+    border-block-end: 1px solid var(--color-neutral-hover);
+}
+a-events-overview th{
+    color: var(--color-on-surface-strong);
+}
+a-events-overview tbody tr:nth-child(even){
+    background-color: var(--color-neutral);
+}
+a-events-overview tbody tr:hover{
+    background-color: var(--color-neutral-hover);
+}
+a-events-overview td input[type="checkbox"]{
+    margin-inline-end: var(--spacing-sm);
+}
+
+a-status output{
+    color: var(--color-danger);
+}
+a-status button{
+    font-size: 12px;
+    height: 30px;
+    padding: 0 var(--spacing-sm);
+    border-radius: var(--rounded-sm);
+    background-color: var(--color-neutral);
+    color: var(--color-on-neutral);
 }

@@ -12,7 +12,7 @@ class EventsOverview extends AirElement {
         return html`
         <a-events-filter></a-events-filter>
         <a-event-actions></a-event-actions>
-        <table class="table is-striped is-hoverable is-fullwidth">
+        <table>
             <thead>
                 <th>event name</th>
                 <th>start</th>
