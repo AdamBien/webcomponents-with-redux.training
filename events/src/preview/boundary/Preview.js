@@ -1,21 +1,36 @@
 import AirElement from "../../AirElement.js";
 import { html } from "lit-html";
 
+/**
+ * Renders the selected event as schema.org microdata ready to copy into a
+ * blog post. Deliberately uses Shadow DOM — the copied markup and its
+ * external stylesheet stay isolated from the page styles.
+ */
 class Preview extends AirElement {
-    
-    constructor() { 
+
+    constructor() {
         super();
         this.root = this.attachShadow({ mode: "open" });
     }
 
-    extractState({ events: { form} }) { 
+    /**
+     * @param {Object} reduxState - the entire state
+     * @returns {{form: EventEntity}} the event loaded for preview
+     */
+    extractState({ events: { form} }) {
         return { form };
     }
 
-    getRenderTarget() { 
+    /**
+     * @returns {ShadowRoot} the shadow root instead of the element itself
+     */
+    getRenderTarget() {
         return this.root;
     }
 
+    /**
+     * @returns {*} the lit-html template
+     */
     view() {
         const { startdate, enddate, description, eventname,link,locationname,address } = this.state.form;
         return html`
@@ -60,6 +75,11 @@ class Preview extends AirElement {
         `;
     }
 
+    /**
+     * Copies only the microdata (the article's content) — not the styling or
+     * the button — into the clipboard.
+     * @returns {Promise<void>}
+     */
     async copyIntoClipboard() {
         const result = await navigator.permissions.query({ name: "clipboard-write" });
             if(result.state == "granted" || result.state == "prompt") {

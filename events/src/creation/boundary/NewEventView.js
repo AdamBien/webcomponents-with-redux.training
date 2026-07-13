@@ -4,9 +4,16 @@ import '../../overview/boundary/EventsOverview.js';
 import AirElement from "../../AirElement.js";
 import { html } from "lit-html";
 
-class NewEventView extends AirElement { 
+/**
+ * Facade component and routing target for the "/" route: composes the
+ * event form with the overview table.
+ */
+class NewEventView extends AirElement {
 
-    view() { 
+    /**
+     * @returns {*} the lit-html template
+     */
+    view() {
         return html`
             <a-newevent></a-newevent>
             <a-events-overview></a-events-overview>

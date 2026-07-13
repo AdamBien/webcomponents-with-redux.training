@@ -5,9 +5,16 @@ import matchesCriteria from '../entity/Filter.js';
 import { eventSelected, sortByDate } from "../control/EventsControl.js";
 import './EventActions.js';
 
-class EventsOverview extends AirElement { 
+/**
+ * Filterable, chronologically sorted table of all events with per-row
+ * selection; composes the filter input and the bulk action buttons.
+ */
+class EventsOverview extends AirElement {
 
-    view() { 
+    /**
+     * @returns {*} the lit-html template
+     */
+    view() {
         const { events: { list }, filter: { filter } } = this.state;
         return html`
         <a-events-filter></a-events-filter>
@@ -43,7 +50,10 @@ class EventsOverview extends AirElement {
 
 
 
-    triggerSelection(e) { 
+    /**
+     * @param {Event} e - the checkbox click; the input's name carries the eventname
+     */
+    triggerSelection(e) {
         const { target: { name, checked } } = e;
         eventSelected(name, checked);
     }

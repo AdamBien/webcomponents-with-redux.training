@@ -3,12 +3,19 @@ import store from "../../store.js";
 
 export const createEventAction = createAction("createEventAction");
 
-const createEvent = _ => { 
+/**
+ * Commits the form cache to the event list.
+ */
+const createEvent = _ => {
     store.dispatch(createEventAction());
 }
 
 export const inputChangedAction = createAction("inputChangedAction");
 
+/**
+ * @param {string} name - the form field name
+ * @param {(string|boolean)} value - the entered value
+ */
 export const inputChanged = (name, value) => {
     store.dispatch(inputChangedAction({name,value}));
 }

@@ -2,20 +2,33 @@ import AirElement from "../../AirElement.js";
 import { html } from "lit-html";
 import { onFilterChanged } from "../control/FilterControl.js";
 
-class EventsFilter extends AirElement { 
+/**
+ * Keyword input filtering the overview table on every keystroke.
+ */
+class EventsFilter extends AirElement {
 
-    extractState(redux) { 
+    /**
+     * @param {Object} redux - the entire state
+     * @returns {FilterState} the filter slice
+     */
+    extractState(redux) {
         return redux.filter;
     }
 
-    view() { 
+    /**
+     * @returns {*} the lit-html template
+     */
+    view() {
         const { filter } = this.state;
         return html`
             <input type="search" aria-label="filter events" .value=${filter} placeholder="keyword" @keyup=${e => this.onFilter(e)}>
         `
     }
 
-    onFilter({ target: { value } }) { 
+    /**
+     * @param {Event} event - the keyup carrying the current keyword
+     */
+    onFilter({ target: { value } }) {
         onFilterChanged(value);
     }
 

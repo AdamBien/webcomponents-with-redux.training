@@ -5,13 +5,22 @@ import { validate } from "../control/LinkValidatorControl.js";
 
 import '../../inputs/boundary/DateInput.js';
 
-class NewEvent extends AirElement{ 
+/**
+ * Event form: every field change flows through the control layer into the
+ * temporal form cache; save commits the cache to the list after native form
+ * validation (including the asynchronous link validation) passes.
+ */
+class NewEvent extends AirElement{
 
-    constructor() { 
+    constructor() {
         super();
     }
 
-    extractState(redux) { 
+    /**
+     * @param {Object} redux - the entire state
+     * @returns {{list: Array<EventEntity>, validations: {ok: boolean, status: number}, form: EventEntity, loading: {status: (boolean|string), message: string}}}
+     */
+    extractState(redux) {
         const { events: { list, validations, form }, status: { loading } } = redux;
         return {
             list,
@@ -42,7 +51,12 @@ class NewEvent extends AirElement{
     }
 
 
-    onOnline({ target: { name, checked } }) { 
+    /**
+     * An online event needs no physical location — the checkbox also
+     * pre-fills the location name.
+     * @param {Event} event - the checkbox change
+     */
+    onOnline({ target: { name, checked } }) {
         console.log('checkbox', name, checked);
         if (checked) {
             inputChanged('locationname', 'online');
@@ -53,11 +67,18 @@ class NewEvent extends AirElement{
 
     }
 
+    /**
+     * @returns {string} the css class marking the save button during in-flight requests
+     */
     isLoadingClass() {
         const { status } = this.state.loading;
         return status ? 'loading' : '';
     }
 
+    /**
+     * @param {{name: string, placeholder?: string, type?: string}} field
+     * @returns {*} a labeled input bound to the form cache
+     */
     input({ name, placeholder = name,type='text' }) {
         const { form } = this.state
         const { status } = this.state.loading;
@@ -68,22 +89,34 @@ class NewEvent extends AirElement{
         `;
     }
 
-    
-    onStartDate({ target: { name,value } }) { 
+    /**
+     * The end date defaults to the start date — a one-day event needs one input.
+     * @param {Event} event - the start date change
+     */
+    onStartDate({ target: { name,value } }) {
         inputChanged("enddate",value);
         inputChanged(name, value);
 
     }
 
-    
-    onUserInput({ target: { name,value } }) { 
-        if (name === 'link') { 
+    /**
+     * Link changes additionally trigger the asynchronous backend validation.
+     * @param {Event} event - the field change
+     */
+    onUserInput({ target: { name,value } }) {
+        if (name === 'link') {
             validate(value);
         }
         inputChanged(name,value);
 
     }
-    newEvent(e) { 
+
+    /**
+     * Saves after native validation passes; the asynchronous link validation
+     * result surfaces through setCustomValidity, not a parallel error display.
+     * @param {Event} e - the save button click
+     */
+    newEvent(e) {
         const { target: { form,form: { elements } } } = e;
         e.preventDefault();
         const { link } = elements;

@@ -1,13 +1,24 @@
 import AirElement from "../../AirElement.js";
 import { html } from "lit-html";
 import { clearMessage } from "../control/StatusControl.js";
-class Status extends AirElement { 
+/**
+ * Application-wide status line in the page header; renders the latest
+ * message with a clear action.
+ */
+class Status extends AirElement {
 
-    extractState(redux) { 
+    /**
+     * @param {Object} redux - the entire state
+     * @returns {StatusState} the status slice
+     */
+    extractState(redux) {
         return redux.status;
     }
 
-    view() { 
+    /**
+     * @returns {*} the lit-html template
+     */
+    view() {
         const { message } = this.state;
         return html`
             <output>${message}</output>
