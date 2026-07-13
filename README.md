@@ -24,6 +24,9 @@ Net effect in git: **44 files changed, 1,040 insertions, 14,640 deletions** — 
 
 Redux Toolkit was kept as an option, not deleted: application code imports `@reduxjs/toolkit` either way, and the import map in `events/src/index.html` selects the implementation — switching back is a one-line change. Dependencies resolve through [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap); the responsive layout uses container queries.
 
+> [!TIP]
+> LLMs love stable web standards: this project is easily maintained with AI coding agents using the [web-components skill](https://github.com/AdamBien/airails/tree/main/web/web-components) from [airails.dev](https://airails.dev) — the skill captures the architecture and naming rules (BCE modules, boundary facades, module-prefixed tags, standards-based routing) that this modernization follows.
+
 ## Architecture
 
 The application follows the Boundary Control Entity (BCE) pattern: one folder per
