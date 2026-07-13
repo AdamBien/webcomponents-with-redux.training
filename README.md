@@ -11,12 +11,18 @@ verifies that entered links exist.
 
 ## Modernization
 
-The events application was modernized along the lines of the [bce.design](https://github.com/AdamBien/bce.design) quickstarter:
+The events application was modernized along the lines of the [bce.design](https://github.com/AdamBien/bce.design) quickstarter. External libraries were pruned and replaced with web standards — the numbers are the argument:
 
-- state management defaults to [reduction.js](events/src/reduction.js) — a minimal, standards-based implementation of the used Redux Toolkit API (`configureStore`, `createAction`, `createReducer`) built on [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone). The original Redux Toolkit bundle remains available; switch via the import map in `events/src/index.html`
-- client-side routing uses web standards ([Navigation API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_API) + [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) + [View Transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)) instead of Vaadin Router
-- the date picker is the native `input type="date"` instead of UI5 web components
-- dependencies resolve through [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap); responsive layout uses container queries
+| external library | replaced with (web standard) | before | after |
+|---|---|---|---|
+| Vaadin Router | [Navigation API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_API) + [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern) + [View Transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API) in [router.js](events/src/router.js) | 2,924 lines | 55 lines |
+| UI5 web components (DatePicker) | native `input type="date"` | 9.2 MB | 0 |
+| Bulma | design tokens as CSS custom properties ([tokens.css](events/src/tokens.css)) + one plain stylesheet | 10,831 lines | 285 lines |
+| Redux Toolkit | [reduction.js](events/src/reduction.js) — the used API (`configureStore`, `createAction`, `createReducer`) on [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone) instead of Immer | 96 KB bundle | 77 lines |
+
+Net effect in git: **44 files changed, 1,040 insertions, 14,640 deletions** — roughly 93% less code delivering the same application, plus the untracked 9.2 MB UI5 distribution removed from the payload. The only remaining runtime dependency is lit-html (48 KB).
+
+Redux Toolkit was kept as an option, not deleted: application code imports `@reduxjs/toolkit` either way, and the import map in `events/src/index.html` selects the implementation — switching back is a one-line change. Dependencies resolve through [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap); the responsive layout uses container queries.
 
 ## Architecture
 
