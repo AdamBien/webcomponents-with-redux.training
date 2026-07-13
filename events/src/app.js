@@ -2,7 +2,7 @@
  * Application entry point that initializes routing and state persistence.
  * To deactivate localStorage persistence, comment out or remove the store.subscribe() block.
  */
-import './creation/boundary/NewEventView.js'
+import './creation/boundary/Creation.js'
 import './preview/boundary/Preview.js';
 import './status/boundary/Status.js';
 
@@ -16,6 +16,6 @@ store.subscribe(_ => {
 })
 
 initRouter(document.querySelector('.view'), [
-    { path: '/',        component: 'a-neweventview' },
+    { path: '/',        component: 'a-creation' },
     { path: '/preview', component: 'a-preview' }
 ]);

@@ -2,6 +2,9 @@
 
 Captures a new event through a form and commits it to the event list.
 
+The facade (`Creation.js`, `a-creation`) is the routing target for `/` and doubles
+as the home view: it composes the event form with the overview module's table.
+
 Form input flows through a temporal cache (`form` in the state) on every change and
 is only added to the list on save — `addOrReplace` treats the event name as the
 identity, so saving an edited event replaces its list entry instead of duplicating it.

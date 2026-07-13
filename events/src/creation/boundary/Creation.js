@@ -5,10 +5,11 @@ import AirElement from "../../AirElement.js";
 import { html } from "lit-html";
 
 /**
- * Facade component and routing target for the "/" route: composes the
- * event form with the overview table.
+ * Facade component of the creation module and routing target for the "/"
+ * route; doubles as the home view by composing the event form with the
+ * overview table.
  */
-class NewEventView extends AirElement {
+class Creation extends AirElement {
 
     /**
      * @returns {*} the lit-html template
@@ -22,4 +23,4 @@ class NewEventView extends AirElement {
 
 }
 
-customElements.define('a-neweventview',NewEventView);
+customElements.define('a-creation',Creation);
