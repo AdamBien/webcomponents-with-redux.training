@@ -41,8 +41,8 @@ class NewEvent extends AirElement{
             </label>
 
             ${this.input({ name: 'address', placeholder: 'location address' })}
-            <a-dateinput name='startdate' ?disabled=${status} @change=${e => this.onStartDate(e)}></a-dateinput>
-            <a-dateinput name='enddate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-dateinput>
+            <a-inputs-date name='startdate' ?disabled=${status} @change=${e => this.onStartDate(e)}></a-inputs-date>
+            <a-inputs-date name='enddate' ?disabled=${status} @change=${e => this.onUserInput(e)}></a-inputs-date>
             ${this.input({ name: 'link',type:'url'})}
             ${this.input({ name: 'description' })}
             <button type="submit" class="${this.isLoadingClass()}" @click=${e=> this.newEvent(e)}>save</button>
@@ -133,4 +133,4 @@ class NewEvent extends AirElement{
 
 }
 
-customElements.define('a-newevent',NewEvent);
+customElements.define('a-creation-new-event',NewEvent);

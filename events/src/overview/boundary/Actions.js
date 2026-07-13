@@ -7,7 +7,7 @@ import { areSomeSelected,isOneRowSelected } from "../entity/EventOperations.js";
  * Bulk actions on the selected overview rows: edit and preview require
  * exactly one selection, deselect and delete any selection.
  */
-class EventActions extends AirElement {
+class Actions extends AirElement {
 
     /**
      * @param {Object} redux - the entire state
@@ -30,4 +30,4 @@ class EventActions extends AirElement {
     }
 }
 
-customElements.define('a-event-actions',EventActions);
+customElements.define('a-overview-actions',Actions);

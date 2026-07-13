@@ -3,7 +3,7 @@ import AirElement from "../../AirElement.js";
 import '../../filter/boundary/Filter.js'
 import matchesCriteria from '../entity/Filter.js';
 import { eventSelected, sortByDate } from "../control/EventsControl.js";
-import './EventActions.js';
+import './Actions.js';
 
 /**
  * Filterable, chronologically sorted table of all events with per-row
@@ -18,7 +18,7 @@ class Overview extends AirElement {
         const { events: { list }, filter: { filter } } = this.state;
         return html`
         <a-filter></a-filter>
-        <a-event-actions></a-event-actions>
+        <a-overview-actions></a-overview-actions>
         <table>
             <thead>
                 <th>event name</th>

@@ -1,21 +1,5 @@
 # Building web apps with Web Components, redux and lit-html
 
-This repository hosts the "events" application which was developed during the
-[WebComponents with lit-html and redux](http://webcomponents-with-redux.training)
-workshop.
-
-[![Web Components with lit-html and redux](https://i.vimeocdn.com/vod_page_thumbnail/105023.jpg)](http://webcomponents-with-redux.training)
-
-New to Web Standards? Checkout: http://webstandards.training
-
-New to Web Components? Checkout: http://webcomponents.training
-
-Never built an app? Checkout: http://effectiveweb.training
-
-Migration to redux toolkit: https://vimeo.com/ondemand/redux
-
-Checkout all online workshops: https://airhacks.io
-
 ## The events application
 
 A single-page application for maintaining conference and workshop events: create an

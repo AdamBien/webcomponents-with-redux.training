@@ -16,7 +16,7 @@ class Creation extends AirElement {
      */
     view() {
         return html`
-            <a-newevent></a-newevent>
+            <a-creation-new-event></a-creation-new-event>
             <a-overview></a-overview>
         `;
     }

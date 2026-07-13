@@ -127,7 +127,7 @@ a-creation{
     padding-block: var(--spacing-lg);
 }
 
-a-newevent form{
+a-creation-new-event form{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -177,16 +177,16 @@ button{
     cursor: pointer;
 }
 
-a-newevent form button{
+a-creation-new-event form button{
     block-size: 40px;
     padding: 0 var(--spacing-md);
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 }
-a-newevent form button:hover{
+a-creation-new-event form button:hover{
     background-color: color-mix(in oklab, var(--color-primary), black 8%);
 }
-a-newevent form button.loading{
+a-creation-new-event form button.loading{
     opacity: 0.6;
     pointer-events: none;
 }
@@ -200,7 +200,7 @@ a-filter input{
     margin-block: var(--spacing-sm);
 }
 
-a-event-actions button{
+a-overview-actions button{
     font-size: 12px;
     block-size: 30px;
     padding: 0 var(--spacing-sm);
@@ -208,21 +208,21 @@ a-event-actions button{
     background-color: var(--color-neutral);
     color: var(--color-on-neutral);
 }
-a-event-actions button:hover{
+a-overview-actions button:hover{
     background-color: var(--color-neutral-hover);
 }
-a-event-actions button.preview{
+a-overview-actions button.preview{
     /* secondary darkened to clear WCAG AA (4.5:1) for 12px text on the neutral fill */
     color: color-mix(in oklab, var(--color-secondary), black 20%);
 }
-a-event-actions button.delete{
+a-overview-actions button.delete{
     background-color: var(--color-danger-surface);
     color: var(--color-danger);
 }
-a-event-actions button.delete:focus-visible{
+a-overview-actions button.delete:focus-visible{
     outline-color: var(--color-danger);
 }
-a-event-actions button[disabled]{
+a-overview-actions button[disabled]{
     opacity: 0.5;
     cursor: not-allowed;
 }

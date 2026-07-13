@@ -27,4 +27,4 @@ class DateInput extends AirElement {
     }
 }
 
-customElements.define('a-dateinput', DateInput);
+customElements.define('a-inputs-date', DateInput);
