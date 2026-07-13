@@ -1,32 +1,30 @@
 import AirElement from "../../AirElement.js";
-import { html } from "../../lib/lit-html.js";
-import "../../lib/@ui5/webcomponents/dist/DatePicker.js";
-import "../../lib/@ui5/webcomponents/dist/Assets.js";
+import { html } from "lit-html";
 
-class DateInput extends AirElement { 
+/**
+ * Date input backed by the native input type="date" — no date picker
+ * dependency; the browser supplies the calendar UI, keyboard access and
+ * ISO 8601 (yyyy-mm-dd) values.
+ */
+class DateInput extends AirElement {
 
-    extractState(redux) { 
-        const { events: { form }} = redux;
-        return {
-            form
-        }
+    /**
+     * @param {Object} reduxState
+     * @returns {{form: Object}} the event form slice
+     */
+    extractState({ events: { form } }) {
+        return { form };
     }
-        
 
-    view() { 
+    view() {
         const { form } = this.state;
         const name = this.getAttribute('name');
         return html`
-        <style>
-        ui5-datepicker{
-            display: block;
-        }
-        </style>
-    <label class="label">${name}
-        <ui5-datepicker name="${name}" .value=${form[name]||null} ?disabled=${this.hasAttribute('disabled')}></ui5-datepicker>
-    </label>
+        <label class="label">${name}
+            <input class="input is-primary" type="date" name="${name}" .value=${form[name] || ''} ?disabled=${this.hasAttribute('disabled')}>
+        </label>
         `;
     }
 }
 
-customElements.define('a-dateinput',DateInput);
+customElements.define('a-dateinput', DateInput);

@@ -1,4 +1,4 @@
-import { createReducer } from "../../lib/redux-toolkit.esm.js";
+import { createReducer } from "@reduxjs/toolkit";
 import { eventSelectedAction,deleteSelectedAction, editSelectedAction, deselectAllAction } from "../control/EventsControl.js";
 import { findEvent } from "./EventOperations.js";
 const initialState = { list: [] }

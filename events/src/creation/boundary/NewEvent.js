@@ -1,4 +1,4 @@
-import {  html } from "../../lib/lit-html.js";
+import {  html } from "lit-html";
 import AirElement from "../../AirElement.js";
 import { createEvent,inputChanged } from "../control/EventsControl.js";
 import { validate } from "../control/LinkValidatorControl.js";

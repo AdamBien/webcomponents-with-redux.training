@@ -1,4 +1,4 @@
-import { html,render } from "../../lib/lit-html.js";
+import { html,render } from "lit-html";
 import AirElement from "../../AirElement.js";
 import '../../filter/boundary/EventsFilter.js'
 import matchesCriteria from '../entity/Filter.js';

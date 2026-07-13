@@ -1,4 +1,4 @@
-import { createReducer } from "../../lib/redux-toolkit.esm.js";
+import { createReducer } from "@reduxjs/toolkit";
 import { clearMessageAction, errorHappenedAction, requestCompletedAction, requestStartedAction } from "../control/StatusControl.js";
 const initialState = {
         loading: {

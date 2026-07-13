@@ -1,5 +1,5 @@
 import store from '../../store.js'
-import { createAction } from "../../lib/redux-toolkit.esm.js";
+import { createAction } from "@reduxjs/toolkit";
 
 export const onFilterChangedAction = createAction("onFilterChangedAction");
 

@@ -1,4 +1,4 @@
-import { createAction } from "../../lib/redux-toolkit.esm.js";
+import { createAction } from "@reduxjs/toolkit";
 import store from "../../store.js";
 
 export const createEventAction = createAction("createEventAction");

@@ -1,4 +1,4 @@
-import { createReducer } from "../../lib/redux-toolkit.esm.js";
+import { createReducer } from "@reduxjs/toolkit";
 import { createEventAction, inputChangedAction } from "../control/EventsControl.js";
 import { linkValidatedAction } from "../control/LinkValidatorControl.js";
 import { addOrReplace, addInput } from "./EditOperations.js";

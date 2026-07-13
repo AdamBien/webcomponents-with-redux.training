@@ -1,6 +1,5 @@
 import store from "../../store.js";
-import { Router } from '../../lib/@vaadin/router.js';
-import { createAction } from "../../lib/redux-toolkit.esm.js";
+import { createAction } from "@reduxjs/toolkit";
 
 export const eventSelectedAction = createAction("eventSelectedAction");
 export const eventSelected = (name, checked) => {
@@ -16,10 +15,13 @@ export const editSelected = () => {
     store.dispatch(editSelectedAction());
 }
 
+/**
+ * Programmatic route change through the Navigation API — the router's
+ * navigate listener intercepts it like any link click.
+ */
 export const previewSelected = () => {
     editSelected();
-    Router.go("/preview");
-
+    navigation.navigate("/preview");
 }
 
 export const deselectAllAction = createAction("deselectAllAction");

@@ -1,5 +1,5 @@
 import AirElement from "../../AirElement.js";
-import { html } from "../../lib/lit-html.js";
+import { html } from "lit-html";
 import { clearMessage } from "../control/StatusControl.js";
 class Status extends AirElement { 
 

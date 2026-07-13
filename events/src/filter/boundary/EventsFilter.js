@@ -1,5 +1,5 @@
 import AirElement from "../../AirElement.js";
-import { html } from "../../lib/lit-html.js";
+import { html } from "lit-html";
 import { onFilterChanged } from "../control/FilterControl.js";
 
 class EventsFilter extends AirElement { 

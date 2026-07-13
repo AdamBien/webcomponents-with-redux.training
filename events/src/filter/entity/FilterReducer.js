@@ -1,4 +1,4 @@
-import { createReducer } from "../../lib/redux-toolkit.esm.js";
+import { createReducer } from "@reduxjs/toolkit";
 import { onFilterChangedAction } from "../control/FilterControl.js";
 const initialState = { filter: '' };
 export const filter = createReducer(initialState, (builder) => {

@@ -1,6 +1,6 @@
 import { errorHappened,requestCompleted,requestStarted } from "../../status/control/StatusControl.js";
 import store from '../../store.js';
-import { createAction } from "../../lib/redux-toolkit.esm.js";
+import { createAction } from "@reduxjs/toolkit";
 
 export const linkValidatedAction = createAction("linkValidatedAction");
 

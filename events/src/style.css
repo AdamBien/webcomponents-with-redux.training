@@ -1,13 +1,17 @@
+body{
+    container-type: inline-size;
+}
+
 main{
-    height: 100vh;
+    min-height: 100dvh;
     display: grid;
 }
 
-@media screen and (max-width: 40em){
+@container (max-width: 40em){
     main{
         grid-template-rows: 1fr 2fr 6fr 1fr;
         grid-template-columns: 1fr;
-        grid-template-areas: 
+        grid-template-areas:
         "status"
         "menu"
         "view"
@@ -18,11 +22,11 @@ main{
     }
 }
 
-@media screen and (min-width: 40em){
+@container (min-width: 40em){
     main{
         grid-template-rows: 1fr 6fr 1fr;
         grid-template-columns: 1fr 4fr;
-        grid-template-areas: 
+        grid-template-areas:
         "status status"
         "menu view"
         "footer footer";
@@ -42,7 +46,7 @@ nav{
 
 .view{
     overflow: auto;
-    height: 80vh;
+    min-height: 80dvh;
 }
 
 a-neweventview{

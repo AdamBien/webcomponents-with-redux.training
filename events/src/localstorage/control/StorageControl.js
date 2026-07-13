@@ -1,12 +1,29 @@
-const KEY = 'events.localstorage.control'
-const save = (object) => { 
-    const serialized = JSON.stringify(object);
-    localStorage.setItem(KEY,serialized);
+import { appName } from "../../app.config.js";
+const KEY = `${appName}.localstorage.control`;
+
+/**
+ * @param {object} object - the object to be saved
+ */
+const save = (object) => {
+    try {
+        const serialized = JSON.stringify(object);
+        localStorage.setItem(KEY, serialized);
+    } catch (error) {
+        console.error('Failed to save to localStorage:', error);
+    }
 }
 
-const load = _ => { 
-    const serialized = localStorage.getItem(KEY);
-    return JSON.parse(serialized);
+/**
+ * @returns {object} - the deserialized object, or null
+ */
+const load = _ => {
+    try {
+        const serialized = localStorage.getItem(KEY);
+        return serialized ? JSON.parse(serialized) : null;
+    } catch (error) {
+        console.error('Failed to load from localStorage:', error);
+        return null;
+    }
 }
 
-export { load,save };
+export { load, save };

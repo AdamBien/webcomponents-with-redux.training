@@ -2,7 +2,7 @@ import '../../creation/boundary/NewEvent.js';
 import '../../overview/boundary/EventsOverview.js';
 
 import AirElement from "../../AirElement.js";
-import { html } from "../../lib/lit-html.js";
+import { html } from "lit-html";
 
 class NewEventView extends AirElement { 
 

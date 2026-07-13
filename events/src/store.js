@@ -3,7 +3,7 @@ import { overview } from "./overview/entity/OverviewReducer.js";
 import { filter } from "./filter/entity/FilterReducer.js";
 import { status } from "./status/entity/StatusReducer.js";
 import { load } from "./localstorage/control/StorageControl.js";
-import { configureStore } from "./lib/redux-toolkit.esm.js";
+import { configureStore } from "@reduxjs/toolkit";
 
 const chainedEventsReducer = (state, action) => { 
     const eventsResult = events(state, action);

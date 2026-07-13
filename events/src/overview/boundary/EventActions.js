@@ -1,5 +1,5 @@
 import AirElement from "../../AirElement.js";
-import { html } from "../../lib/lit-html.js";
+import { html } from "lit-html";
 import { deleteSelected, deselectAll, editSelected,previewSelected } from "../control/EventsControl.js";
 import { areSomeSelected,isOneRowSelected } from "../entity/EventOperations.js";
 

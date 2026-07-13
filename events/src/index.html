@@ -2,10 +2,24 @@
 <html>
 
 <head>
-  <title>[WebStandards template]</title>
-  <link rel="stylesheet" href="bulma.css">
-  <link rel="stylesheet" href="style.css">
+  <title>events</title>
+  <!-- root-absolute URLs: with the index.html fallback, this document is also
+       served for nested routes like /preview — relative URLs would resolve
+       against the route path and 404 -->
+  <link rel="stylesheet" href="/bulma.css">
+  <link rel="stylesheet" href="/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- state management is switchable here: "@reduxjs/toolkit" resolves to the
+       minimal, standards-based /reduction.js -- point it back to
+       /lib/redux-toolkit.esm.js to use the original Redux Toolkit -->
+  <script type="importmap">
+  {
+    "imports": {
+      "lit-html": "/lib/lit-html.js",
+      "@reduxjs/toolkit": "/reduction.js"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -23,7 +37,7 @@
     </section>
     <footer>powered by airhacks.com</footer>
   </main>
-  <script src="init.js"></script>
-  <script src="app.js" type="module"></script>
+  <script src="/init.js"></script>
+  <script src="/app.js" type="module"></script>
 </body>
 </html>

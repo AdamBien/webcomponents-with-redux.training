@@ -1,19 +1,21 @@
+/**
+ * Application entry point that initializes routing and state persistence.
+ * To deactivate localStorage persistence, comment out or remove the store.subscribe() block.
+ */
 import './creation/boundary/NewEventView.js'
 import './preview/boundary/Preview.js';
 import './status/boundary/Status.js';
 
+import { initRouter } from "./router.js";
 import { save } from "./localstorage/control/StorageControl.js";
 import store from "./store.js";
-import {Router} from './lib/@vaadin/router.js';
 
-store.subscribe(_ => { 
+store.subscribe(_ => {
     const state = store.getState();
     save(state);
 })
 
-const outlet = document.querySelector('.view');
-const router = new Router(outlet);
-router.setRoutes([
-  {path: '/',     component: 'a-neweventview'},
-  {path: '/preview',  component: 'a-preview'}
+initRouter(document.querySelector('.view'), [
+    { path: '/',        component: 'a-neweventview' },
+    { path: '/preview', component: 'a-preview' }
 ]);
