@@ -30,7 +30,7 @@ class Overview extends AirElement {
             </thead>
             <tbody>
             ${list.filter(e => matchesCriteria(e, filter)).
-            sort(({startdate}, {enddate}) => sortByDate(startdate,enddate)).
+            sort(({ startdate: first }, { startdate: second }) => sortByDate(first, second)).
                 map(({ eventname, description,startdate,enddate,link,checked,online }) => html`
             <tr>
                 <td><input name="${eventname}" .checked=${checked} type="checkbox" @click=${e=>this.triggerSelection(e)}>${eventname}</td>

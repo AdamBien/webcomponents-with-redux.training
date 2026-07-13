@@ -31,6 +31,8 @@ export const validate = async (url) => {
         result = await response.json();
     } catch (error) {
         errorHappened(error, 'Validation server is not available');
+        // the validator is advisory: an unreachable backend must not veto the save (R3.2)
+        dispatchResult({ ok: true, status: 0 });
         return;
     } finally {
         requestCompleted('uri validation');

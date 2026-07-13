@@ -4,13 +4,25 @@
     <meta charset="utf-8" />
     <title>Mocha Tests</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="lib//mocha.css" />
+    <link rel="stylesheet" href="lib/mocha.css" />
+    <!-- same switchable state management as index.html -->
+    <script type="importmap">
+    {
+      "imports": {
+        "lit-html": "../src/lib/lit-html.js",
+        "@reduxjs/toolkit": "../src/reduction.js"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="mocha"></div>
 
     <script src="lib/chai.js"></script>
     <script src="lib/mocha.js"></script>
+    <!-- the store preloads persisted state on module load — start every test
+         run from the initial state, before any module import runs -->
+    <script>localStorage.removeItem('events.localstorage.control');</script>
 
     <script src="test.js" type="module"></script>
   </body>

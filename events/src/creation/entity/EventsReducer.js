@@ -28,9 +28,11 @@ import { addOrReplace, addInput } from "./EditOperations.js";
 const initialState = {
     list: [],
     form: {},
+    // permissive by default: only an explicit rejection by the reachable
+    // validator blocks the save (R3.1) — a never-run validation must not (R3.2)
     validations: {
-        ok: false,
-        status: 404
+        ok: true,
+        status: 0
     }
 };
 
@@ -41,7 +43,10 @@ const initialState = {
 export const events = createReducer(initialState, (builder) => {
     builder.addCase(createEventAction, (state, _) => {
         state.editMode = false,
-        state.list = addOrReplace(state.list, state.form)
+        // commit a snapshot: storing the live form object would alias the
+        // list entry with the cache — the next keystroke would mutate the
+        // saved event (R1.1: input never touches the list)
+        state.list = addOrReplace(state.list, { ...state.form })
 
     }).addCase(linkValidatedAction, (state, { payload: { ok, status } }) => {
         state.validations = {
