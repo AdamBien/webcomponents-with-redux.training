@@ -5,7 +5,7 @@ import { onFilterChanged } from "../control/FilterControl.js";
 /**
  * Keyword input filtering the overview table on every keystroke.
  */
-class EventsFilter extends AirElement {
+class Filter extends AirElement {
 
     /**
      * @param {Object} redux - the entire state
@@ -33,4 +33,4 @@ class EventsFilter extends AirElement {
     }
 
 }
-customElements.define('a-events-filter',EventsFilter);
+customElements.define('a-filter',Filter);

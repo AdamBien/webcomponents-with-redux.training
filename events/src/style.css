@@ -191,12 +191,12 @@ a-newevent form button.loading{
     pointer-events: none;
 }
 
-a-events-overview{
+a-overview{
     inline-size: 80%;
     padding-block-start: var(--spacing-lg);
 }
 
-a-events-filter input{
+a-filter input{
     margin-block: var(--spacing-sm);
 }
 
@@ -227,26 +227,26 @@ a-event-actions button[disabled]{
     cursor: not-allowed;
 }
 
-a-events-overview table{
+a-overview table{
     inline-size: 100%;
     margin-block: var(--spacing-md);
     border-collapse: collapse;
 }
-a-events-overview th, a-events-overview td{
+a-overview th, a-overview td{
     padding: var(--spacing-sm);
     text-align: start;
     border-block-end: 1px solid var(--color-neutral-hover);
 }
-a-events-overview th{
+a-overview th{
     color: var(--color-on-surface-strong);
 }
-a-events-overview tbody tr:nth-child(even){
+a-overview tbody tr:nth-child(even){
     background-color: var(--color-neutral);
 }
-a-events-overview tbody tr:hover{
+a-overview tbody tr:hover{
     background-color: var(--color-neutral-hover);
 }
-a-events-overview td input[type="checkbox"]{
+a-overview td input[type="checkbox"]{
     margin-inline-end: var(--spacing-sm);
 }
 
