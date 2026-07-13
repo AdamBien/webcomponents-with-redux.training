@@ -15,10 +15,31 @@ body{
     background-color: var(--color-surface);
 }
 
+.skip-link{
+    position: absolute;
+    inset-block-start: var(--spacing-sm);
+    inset-inline-start: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-surface);
+    border-radius: var(--rounded-md);
+    transform: translateY(-200%);
+}
+.skip-link:focus{
+    transform: none;
+}
+
 main{
-    min-height: 100dvh;
+    min-block-size: 100dvh;
     display: grid;
-    border-left: 2px solid var(--color-accent-border);
+    border-inline-start: 2px solid var(--color-accent-border);
+}
+
+h1{
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.125;
+    color: var(--color-on-surface-strong);
 }
 
 @container (max-width: 40em){
@@ -64,7 +85,12 @@ nav{
 
 .view{
     overflow: auto;
-    min-height: 80dvh;
+    min-block-size: 80dvh;
+}
+/* skip-link target: focus lands here programmatically — a ring around the
+   whole content region is noise; the next Tab reaches real controls */
+.view:focus-visible{
+    outline: none;
 }
 
 a{
@@ -106,12 +132,12 @@ a-newevent form{
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-md);
-    width: min(40ch, 100%);
+    inline-size: min(40ch, 100%);
 }
 label{
     display: grid;
     gap: var(--spacing-sm);
-    width: 100%;
+    inline-size: 100%;
     font-weight: 700;
     color: var(--color-on-surface-strong);
 }
@@ -121,8 +147,8 @@ label:has(input[type="checkbox"]){
 }
 input{
     font: inherit;
-    width: 100%;
-    height: 40px;
+    inline-size: 100%;
+    block-size: 40px;
     padding: 0 var(--spacing-sm);
     color: var(--color-on-surface-strong);
     background-color: var(--color-surface);
@@ -131,8 +157,8 @@ input{
     box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.05);
 }
 input[type="checkbox"]{
-    width: auto;
-    height: auto;
+    inline-size: auto;
+    block-size: auto;
     accent-color: var(--color-primary);
     box-shadow: none;
 }
@@ -152,7 +178,7 @@ button{
 }
 
 a-newevent form button{
-    height: 40px;
+    block-size: 40px;
     padding: 0 var(--spacing-md);
     background-color: var(--color-primary);
     color: var(--color-on-primary);
@@ -166,8 +192,8 @@ a-newevent form button.loading{
 }
 
 a-events-overview{
-    width: 80%;
-    padding-top: var(--spacing-lg);
+    inline-size: 80%;
+    padding-block-start: var(--spacing-lg);
 }
 
 a-events-filter input{
@@ -176,7 +202,7 @@ a-events-filter input{
 
 a-event-actions button{
     font-size: 12px;
-    height: 30px;
+    block-size: 30px;
     padding: 0 var(--spacing-sm);
     border-radius: var(--rounded-sm);
     background-color: var(--color-neutral);
@@ -186,7 +212,8 @@ a-event-actions button:hover{
     background-color: var(--color-neutral-hover);
 }
 a-event-actions button.preview{
-    color: var(--color-secondary);
+    /* secondary darkened to clear WCAG AA (4.5:1) for 12px text on the neutral fill */
+    color: color-mix(in oklab, var(--color-secondary), black 20%);
 }
 a-event-actions button.delete{
     background-color: var(--color-danger-surface);
@@ -201,13 +228,13 @@ a-event-actions button[disabled]{
 }
 
 a-events-overview table{
-    width: 100%;
+    inline-size: 100%;
     margin-block: var(--spacing-md);
     border-collapse: collapse;
 }
 a-events-overview th, a-events-overview td{
     padding: var(--spacing-sm);
-    text-align: left;
+    text-align: start;
     border-block-end: 1px solid var(--color-neutral-hover);
 }
 a-events-overview th{
@@ -228,7 +255,7 @@ a-status output{
 }
 a-status button{
     font-size: 12px;
-    height: 30px;
+    block-size: 30px;
     padding: 0 var(--spacing-sm);
     border-radius: var(--rounded-sm);
     background-color: var(--color-neutral);

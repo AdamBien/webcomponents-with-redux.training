@@ -26,7 +26,7 @@ class Preview extends AirElement {
             button {
                 font: inherit;
                 font-size: 12px;
-                height: 30px;
+                block-size: 30px;
                 padding: 0 var(--spacing-sm);
                 border: none;
                 border-radius: var(--rounded-sm);
