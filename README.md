@@ -20,9 +20,15 @@ The events application was modernized along the lines of the [bce.design](https:
 | Bulma | design tokens as CSS custom properties ([tokens.css](events/src/tokens.css)) + one plain stylesheet | 10,831 lines | 285 lines |
 | Redux Toolkit | [reduction.js](events/src/reduction.js) — the used API (`configureStore`, `createAction`, `createReducer`) on [structuredClone](https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone) instead of Immer | 96 KB bundle | 77 lines |
 
-Net effect in git: **44 files changed, 1,040 insertions, 14,640 deletions** — roughly 93% less code delivering the same application, plus the untracked 9.2 MB UI5 distribution removed from the payload. The only remaining runtime dependency is lit-html (48 KB).
+Net effect in git: **44 files changed, 1,040 insertions, 14,640 deletions** — roughly 93% less code delivering the same application, plus the untracked 9.2 MB UI5 distribution removed from the payload. The only remaining runtime dependency is lit-html (7 KB).
 
 Redux Toolkit was kept as an option, not deleted: application code imports `@reduxjs/toolkit` either way, and the import map in `events/src/index.html` selects the implementation — switching back is a one-line change. Dependencies resolve through [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap); the responsive layout uses container queries.
+
+There is no build system. lit-html ships as a single, self-contained ES module since 3.x and is vendored in `events/src/lib/` directly from the npm registry:
+
+```bash
+./update-lit-html.sh 3.3.3
+```
 
 > [!TIP]
 > LLMs love stable web standards: this project is easily maintained with AI coding agents using the [web-components skill](https://github.com/AdamBien/airails/tree/main/web/web-components) from [airails.dev](https://airails.dev) — the skill captures the architecture and naming rules (BCE modules, boundary facades, module-prefixed tags, standards-based routing) that this modernization follows.
