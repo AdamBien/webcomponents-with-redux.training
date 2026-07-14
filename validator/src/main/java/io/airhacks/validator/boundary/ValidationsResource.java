@@ -32,7 +32,7 @@ public class ValidationsResource {
         }
     }
 
-    public Result notExists(String uri) {
+    Result notExists(String uri) {
         return new Result(false, NOT_FOUND.getStatusCode());
     }
 
