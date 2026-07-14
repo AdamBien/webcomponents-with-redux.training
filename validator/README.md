@@ -1,30 +1,36 @@
-# validator project
+# validator
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Quarkus microservice that checks whether a URI is reachable by issuing an HTTP `HEAD` request and returning the result as JSON. Unreachable targets are handled with MicroProfile Fault Tolerance (`@Retry`, `@Fallback`). CORS is enabled, so the service is directly accessible from the web components frontend in this repository.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## Prerequisites
 
-## Running the application in dev mode
+Java 25+
 
-You can run your application in dev mode that enables live coding using:
+## Build and Run
+
+Dev mode with live reload:
+
 ```
 ./mvnw quarkus:dev
 ```
 
-## Packaging and running the application
+Package and run:
 
-The application is packageable using `./mvnw package`.
-It produces the executable `validator-1.0-SNAPSHOT-runner.jar` file in `/target` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/lib` directory.
+```
+./mvnw package
+java -jar target/quarkus-app/quarkus-run.jar
+```
 
-The application is now runnable using `java -jar target/validator-1.0-SNAPSHOT-runner.jar`.
+## Native Executable
 
-## Creating a native executable
+```
+./mvnw package -Dnative
+```
 
-You can create a native executable using: `./mvnw package -Pnative`.
+Or without a local GraalVM installation:
 
-Or you can use Docker to build the native executable using: `./mvnw package -Pnative -Dquarkus.native.container-build=true`.
+```
+./mvnw package -Dnative -Dquarkus.native.container-build=true
+```
 
-You can then execute your binary: `./target/validator-1.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image-guide .
+Run the binary: `./target/validator-2026-runner`
